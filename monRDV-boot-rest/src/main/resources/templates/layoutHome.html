@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Accueil</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/assets/css/bootstrap.css">
+<link rel="stylesheet" href="/css/app.css">
+<script src="/assets/js/jquery-3.3.1.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<script src="/js/app.js"></script>
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<!-- <script -->
+<!-- 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<!-- <script -->
+<!-- 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<!-- <script src="/assets/js/jquery-3.3.1.js"></script> -->
+<!-- <script src="/assets/js/bootstrap.js"></script> -->
+<script src="/js/app.js"></script>
+
+<link rel="stylesheet" href="/assets/css/bootstrap.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">ResaDoc</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a th:href="@{/}">Accueil</a></li>
+
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a th:href="@{/patient/inscription}"><span
+						class="glyphicon glyphicon-user"></span> Inscription</a></li>
+				<li><a th:href="@{/praticien//inscription}"><span
+						class="glyphicon glyphicon-user"></span> Inscription Praticien</a></li>
+				<li><a th:href="@{/patient/seConnecter}"><span
+						class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="row">
+
+		<div class="col-sm-12">
+			<section layout:fragment="content">
+				<p>Page content goes here</p>
+			</section>
+		</div>
+	</div>
+
+	<footer>
+		<nav class="navbar navbar-default text-center">
+			<div class="container-fluid">
+
+				<div class="btn-group">
+					<a
+						th:href="@{/autre/contact}"><button
+							type="button" class="btn btn-primary">
+							<span class="glyphicon glyphicon-envelope"></span> Contact
+						</button></a> <a th:href="@{/autre/mention_legales}"><button type="button"
+							class="btn btn-primary">
+							<span class="glyphicon glyphicon-file"></span> Mentions Légales
+						</button></a> <a th:href="@{/autre/charte_utilisation}"><button
+							type="button" class="btn btn-primary">
+							<span class="glyphicon glyphicon-list"></span> Charte
+							d'utilisation
+						</button></a>
+				</div>
+			</div>
+			</br>
+		</nav>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layoutHome.html">
+<head>
+<meta charset="UTF-8">
+<title>Liste des praticiens</title>
+</head>
+<body>
+	<section layout:fragment="content">
+
+<!-- 		<div class="btn-group"> -->
+<!-- 			<button type="button" class="btn btn-default dropdown-toggle" -->
+<!-- 				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+<!-- 				Trier par <span class="caret"></span> -->
+<!-- 			</button> -->
+<!-- 			<ul class="dropdown-menu"> -->
+<!-- 				<li><a href="@{/homerecherche/sort(by=price)}">Tarif</a></li> -->
+<!-- 				<li><a href="@{/homerecherche/sort(by=dispo)}">Date de disponibilite</a></li> -->
+<!-- 				<li><a href="@{/homerecherche/sort(by=place)}">Lieu</a></li> -->
+<!-- 			</ul> -->
+<!-- 		</div> -->
+
+
+
+		<p th:if="${#lists.isEmpty(mesPraticiens)}">Aucun praticien ne correspond aux critères recherchés.</p>
+
+		<div class="row" th:unless="${#lists.isEmpty(mesPraticiens)}">
+			<div class="col-sm-6 col-md-4">
+				<div th:each="praticien : ${mesPraticiens}" class="thumbnail">
+					<div class="caption">
+						<h3>
+							<font style="text-transform: uppercase;">[[${praticien.nom}]]</font>
+							[[${praticien.prenom}]]
+						</h3>
+						<ul th:each="specialite : ${praticien.specialites}">
+							<li>[[${specialite.libelle}]]</li>
+						</ul>
+						<p>Prochain rendez-vous le</p>
+						<p th:if="${praticien.prendCarteVitale}">Prends la carte
+							vitale</p>
+						<p th:unless="${praticien.prendCarteVitale}">Ne prends pas la
+							carte vitale</p>
+						<p>
+							<a href="patient/seConnecter" class="btn btn-primary" role="button">Choisir</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

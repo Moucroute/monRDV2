@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layoutPraticien.html">
+
+<head>
+<meta charset="UTF-8">
+<title>Edition compte Praticien - page 2</title>
+</head>
+<body>
+	<section layout:fragment="content">
+
+		<div class="row">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-5">
+
+				<div>
+
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Liste des spécialités enregistrées</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="specialite : ${mesSpecialites}">
+								<td>[[${specialite.libelle}]]</td>
+
+								<td><a
+									th:href="@{/praticien/deleteSpecialite(id=${specialite.id})}"
+									class="btn btn-danger btn-xs"><span
+										class="glyphicon glyphicon-trash"></span></a></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+				<div th:each="specialite : ${allSpecialites}">
+					<input type="checkbox" id="specialite" name="specialite.id">
+					<label for="specialitesExistantes">[[${specialite.libelle}]]</label>
+				</div>
+
+			</div>
+
+			<div class="col-lg-6">
+			
+			
+			</div>
+
+
+		</div>
+
+		<div class="row"></div>
+
+	</section>
+</body>
+</html>
