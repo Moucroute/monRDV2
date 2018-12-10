@@ -15,10 +15,10 @@
       </tr>
 
       <tr>
-        <td>{{rendezvous.patient.nom}}</td>
+        <td>{{rendezvous.patient.nom}} {{rendezvous.patient.prenom}}</td>
         <td>{{heureDebut}}</td>
         <td>{{heureFin}}</td>
-        <td>{{rendezvous.creneaux[0].praticien.nom}}</td>
+        <td>{{rendezvous.creneaux[0].praticien.nom}} {{rendezvous.creneaux[0].praticien.prenom}}</td>
         <th>{{rendezvous.modalite.motif.specialite.libelle}}</th>
         <td>{{rendezvous.creneaux[0].lieu.adresse.rue}}, {{rendezvous.creneaux[0].lieu.adresse.codePostal}}, {{rendezvous.creneaux[0].lieu.adresse.ville}} </td>
         <td>{{rendezvous.creneaux[0].praticien.prendCarteVitale}}</td>
