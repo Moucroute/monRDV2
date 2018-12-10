@@ -25,12 +25,6 @@ const routes: Routes = [
   {path: '', redirectTo: 'patient/mesrdvavenir', pathMatch: 'full'}
 ];
 
-<<<<<<< Updated upstream
-=======
-import { AppComponent } from './app.component';
-import { PatientCalendrierComponent } from './patient-calendrier/patient-calendrier.component';
-import {PatientCalendrierHttpService} from './patient-calendrier/patient-calendrier-http.service';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -47,15 +41,10 @@ import {PatientCalendrierHttpService} from './patient-calendrier/patient-calendr
     HttpModule,
     RouterModule.forRoot(routes),
   ],
-<<<<<<< Updated upstream
+
   providers: [PatientMesPatientsHttpService, PatientRdvInformationHttpService,
     PatientCalendrierHttpService, PatientDonneesUtilisateurHttpService],
-=======
-  providers: [
-    PatientCalendrierHttpService
-  ],
->>>>>>> Stashed changes
-  bootstrap: [AppComponent]
+
 })
 export class AppModule {
 }

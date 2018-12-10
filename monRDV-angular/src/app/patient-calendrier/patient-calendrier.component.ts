@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PatientCalendrierHttpService} from './patient-calendrier-http.service';
+import {RendezVous} from '../model/rendezVous';
 
 @Component({
   selector: 'app-patient-calendrier',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientCalendrierComponent implements OnInit {
 
-  constructor() { }
+  private objet: Object;
+
+  constructor(private patientService: PatientCalendrierHttpService) { }
 
   ngOnInit() {
   }
 
+  listrdv(id: number): Array<RendezVous> {
+
+
+
+    return this.patientService.findbyUtilisateur(id);
+  }
 }
