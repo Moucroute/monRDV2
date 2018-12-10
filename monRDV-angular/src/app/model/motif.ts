@@ -1,4 +1,4 @@
-import {RendezVous} from './rendezVous';
+import {RendezVous} from './rendez-vous';
 import {Modalite} from './modalite';
 import {Specialite} from './specialite';
 

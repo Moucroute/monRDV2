@@ -1,6 +1,6 @@
 import {Modalite} from './modalite';
 import {Lieu} from './lieu';
-import {CreneauDisponible} from './creneauDisponible';
+import {CreneauDisponible} from './creneau-disponible';
 import {Utilisateur} from './utilisateur';
 import {Specialite} from './specialite';
 

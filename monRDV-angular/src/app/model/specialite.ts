@@ -1,4 +1,4 @@
-import {CreneauDisponible} from './creneauDisponible';
+import {CreneauDisponible} from './creneau-disponible';
 import {Praticien} from './praticien';
 import {Motif} from './motif';
 

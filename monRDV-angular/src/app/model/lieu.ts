@@ -1,6 +1,6 @@
 import {Adresse} from './adresse';
-import {RendezVous} from './rendezVous';
-import {CreneauDisponible} from './creneauDisponible';
+import {RendezVous} from './rendez-vous';
+import {CreneauDisponible} from './creneau-disponible';
 import {Praticien} from './praticien';
 
 export class Lieu {
