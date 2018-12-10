@@ -14,13 +14,14 @@ import {PatientDonneesUtilisateurHttpService} from './patient-donnees-utilisateu
 import {PatientRdvInformationComponent} from './patient-rdv-information/patient-rdv-information.component';
 import {PatientRdvInformationHttpService} from './patient-rdv-information/patient-rdv-information-http.service';
 import {PatientCalendrierHttpService} from './patient-calendrier/patient-calendrier-http.service';
+import {PatientMesPatientsComponent} from './patient-mes-patients/patient-mes-patients.component';
 
 
 
 const routes: Routes = [
   {path: 'patient/mesrdvavenir', component: PatientCalendrierComponent},
   {path: 'patient/mesrdvpasses', component: PatientRdvInformationComponent},
-  {path: 'patient/mesinfos', component: PatientDonneesUtilisateurComponent},
+  {path: 'patient/mesinfos', component: PatientMesPatientsComponent},
   {path: '', redirectTo: 'patient/mesrdvavenir', pathMatch: 'full'}
 ];
 
@@ -30,7 +31,9 @@ const routes: Routes = [
     AppComponent,
     PatientDonneesUtilisateurComponent,
     InscriptionFormPatientComponent,
-    PatientCalendrierComponent
+    PatientCalendrierComponent,
+    PatientRdvInformationComponent,
+    PatientMesPatientsComponent
   ],
   imports: [
     BrowserModule,
