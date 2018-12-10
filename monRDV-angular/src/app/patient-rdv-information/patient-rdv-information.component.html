@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Liste des RDV à venir</div>
+  <div class="panel-body">
+
+    <table class="table table-striped">
+      <tr>
+        <th>Patient</th>
+        <th>Date de début</th>
+        <th>Date de début</th>
+        <th>Docteur</th>
+        <th>Spécialité</th>
+        <th>Adresse</th>
+        <th>Carte Vitale</th>
+        <th>N° de téléphone</th>
+        <th></th>
+      </tr>
+
+      <tr *ngFor="let salle of list()">
+        <td>{{salle.nom}}</td>
+        <td>{{salle.adresse.rue}}</td>
+        <td>{{salle.adresse.codePostal}}</td>
+        <td>{{salle.adresse.ville}}</td>
+        <td>
+          <div class="btn-group btn-group-xs">
+            <button class="btn btn-info" (click)="editer(salle.id)"><span class="glyphicon glyphicon-pencil"></span></button>
+            <button class="btn btn-danger" (click)="supprimer(salle.id)"><span class="glyphicon glyphicon-trash"></span></button>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+</div>
