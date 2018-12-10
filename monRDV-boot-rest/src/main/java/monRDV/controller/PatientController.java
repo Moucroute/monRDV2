@@ -81,17 +81,13 @@ public class PatientController {
 	public void delete(@PathVariable Long id) {
 		
 		try {
-			
 			repoPatient.deleteById(id);
-			
 		}
 		
 		catch(Exception e) {
 			
 			System.out.println("supprimer rdv avant de supprimer le patient");
-			
 		}
-		
 		
 	}
 
