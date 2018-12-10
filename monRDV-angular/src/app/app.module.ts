@@ -1,12 +1,8 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+
 
 import {AppComponent} from './app.component';
 import {PatientMesPatientsComponent} from './patient-mes-patients/patient-mes-patients.component';
 import {PatientMesPatientsHttpService} from './patient-mes-patients/patient-mes-patients-http.service';
-import {RouterModule, Routes} from '@angular/router';
 import {PatientCalendrierComponent} from './patient-calendrier/patient-calendrier.component';
 
 import {PatientDonneesUtilisateurComponent} from './patient-donnees-utilisateur/patient-donnees-utilisateur.component';
@@ -17,13 +13,17 @@ import {PatientRdvInformationComponent} from './patient-rdv-information/patient-
 import {PatientMesRdvAVenirComponent} from './patient-mes-rdv-a-venir/patient-mes-rdv-a-venir.component';
 import { PatientMesRdvPassesComponent } from './patient-mes-rdv-passes/patient-mes-rdv-passes.component';
 import { PatientMesInfosComponent } from './patient-mes-infos/patient-mes-infos.component';
-import {PatientMesPatientsService} from './patient-mes-patients/patient-mes-patients.service';
+import {RouterModule, Routes} from "@angular/router";
+import {BrowserModule} from "@angular/platform-browser";
+import {FormsModule} from "@angular/forms";
+import {HttpModule} from "@angular/http";
+import {NgModule} from "@angular/core";
 
 
 const routes: Routes = [
 
   {path: 'patient/mesrdvavenir', component: PatientMesRdvAVenirComponent},
-  {path: 'patient/mesrdvpasses', component: PatientMesRdvPassesComponent},
+  {path: 'patient/mesrdvpasses', component: PatientRdvInformationComponent},
   {path: 'patient/mesinfos', component: PatientMesInfosComponent},
   {path: '', redirectTo: 'patient/mesrdvavenir', pathMatch: 'full'},
 
@@ -45,7 +45,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes)
   ],
   providers: [PatientMesPatientsHttpService, PatientRdvInformationHttpService,
     PatientCalendrierHttpService, PatientDonneesUtilisateurHttpService],

@@ -1,7 +1,6 @@
 package monRDV.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,12 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
 import monRDV.model.Patient;
+import monRDV.model.RendezVous;
 import monRDV.model.Views;
 import monRDV.repository.IRepositoryCreneauDisponible;
 import monRDV.repository.IRepositoryPatient;
@@ -50,7 +49,7 @@ public class PatientController {
 	
 	@GetMapping("/monComptePatient/{id}")
 	@JsonView(Views.ViewPatient.class)
-	public Patient findPatients(@PathVariable Long id) {
+	public Patient findPatientDefaut(@PathVariable Long id) {
 		return repoPatient.findPatientDefaut(id); 
 	}
 
@@ -58,7 +57,7 @@ public class PatientController {
 	//Ci dessous, pour afficher la liste des patients
 	@GetMapping("/monComptePatient/{id}/MesPatients")
 	@JsonView(Views.ViewPatient.class)
-	public List<Patient> findPatientDefaut(@PathVariable Long id) {
+	public List<Patient> findPatientsByUtilisateur(@PathVariable Long id) {
 		return repoUtilisateur.findPatientsByUtilisateur(id); 
 	}
 
@@ -76,6 +75,8 @@ public class PatientController {
 		return repoPatient.save(patient);
 	}
 	
+	
+	
 	@DeleteMapping("/monComptePatient/MesPatientsDelete/{id}")
 	@JsonView(Views.ViewPatient.class)
 	public void delete(@PathVariable Long id) {
@@ -91,7 +92,11 @@ public class PatientController {
 		
 	}
 
-
+	@GetMapping("/Historique/{id}")
+	@JsonView(Views.ViewUtilisateurWithRendezVous.class)
+	public List <RendezVous> findByUtilisateur(@PathVariable Long id) {
+		return repoRendezVous.findByUtilisateur(id); 
+	}
 	
 	
 //	@GetMapping("/inscription")

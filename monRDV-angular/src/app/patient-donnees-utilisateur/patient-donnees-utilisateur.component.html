@@ -1,41 +1,48 @@
 
-
-
 <div class="form-group">
-  <label for="nom">Nom:</label>
-  <input type="text" class="form-control" id="nom" disabled="disabled">
-</div>
-
-<button class="btn btn-success" (click)="editNom()"><span class="glyphicon glyphicon-pencil"></span></button>
-
-<div class="form-group">
-  <label for="prenom">Prénom:</label>
-  <input type="text" class="form-control" id="prenom" disabled="disabled">
-</div>
-<button class="btn btn-success" (click)="editPrenom()"><span class="glyphicon glyphicon-pencil"></span></button>
-
-<div class="form-group">
-  <label for="email">Name:</label>
-  <input type="text" class="form-control" id="email" disabled="disabled">
-</div>
-<button class="btn btn-success" (click)="editMail()"><span class="glyphicon glyphicon-pencil"></span></button>
-
-<div class="form-group">
-  <label for="pwd">Password:</label>
-  <input type="password" class="form-control" id="pwd" disabled="disabled">
-</div>
-<button class="btn btn-success" (click)="editPwd()"><span class="glyphicon glyphicon-pencil"></span></button>
-
-<div class="form-group">
-  <label for="tel">Password:</label>
-  <input type="text" class="form-control" id="tel" disabled="disabled">
-</div>
-<button class="btn btn-success" (click)="editTel()"><span class="glyphicon glyphicon-pencil"></span></button>
+  <ul>
+    <li>Nom: {{currentPatient.prenom }}</li>
+    <li>Prénom: {{currentPatient.nom}}</li>
+    <li>Email: {{current.email}}</li>
+    <li>Password: {{current.motDePasse}}</li>
+    <li>Password: {{current.telephone}}</li>
+  </ul>
 
 
 
+<button class="btn btn-info" (click)="edit()">Modifier mes informations</button>
 
+  <div *ngIf="affiche" class="panel panel-primary">
 
+    <div class="form-group">
+      <label for="nom">Prénom:</label>
+      <input type="text" class="form-control" id="nom" disabled="disabled">
+    </div>
+
+  <div class="form-group">
+    <label for="prenom">Prénom:</label>
+    <input type="text" class="form-control" id="prenom" disabled="disabled">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Name:</label>
+    <input type="text" class="form-control" id="email" disabled="disabled">
+  </div>
+
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd" disabled="disabled">
+  </div>
+
+  <div class="form-group">
+    <label for="tel">Password:</label>
+    <input type="text" class="form-control" id="tel" disabled="disabled">
+  </div>
+
+    <button class="btn btn-info" (click)="save()">Valider</button>
+    <button class="btn btn-info" (click)="cancel()">Annuler</button>
+
+  </div>
 
 
 

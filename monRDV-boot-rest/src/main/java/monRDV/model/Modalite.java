@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "modalite")
 public class Modalite {
@@ -20,25 +22,32 @@ public class Modalite {
 	@Id
 	@GeneratedValue
 	@Column(name = "id", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private Integer version;
 
 	@Column(name = "prix", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private Float prix;
 
 	@Column(name = "duree", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private Long duree;
 
 	@Column(name = "delai_annulation", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private Long delaiAnnulation;
 
 	@Column(name = "depassement_honoraires", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private Boolean depassementHonoraires;
 
 	@ManyToOne
 	@JoinColumn(name="praticien_id")
+	@JsonView(Views.ViewCommon.class)
 	private Praticien praticien;
 
 	@OneToMany(mappedBy="modalite")
