@@ -8,6 +8,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,12 +20,15 @@ public class Specialite {
 	
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	
 	@Column(name = "libelle", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private String libelle;
 	
 	@ManyToMany(mappedBy = "specialites")

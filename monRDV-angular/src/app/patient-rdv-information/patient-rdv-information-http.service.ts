@@ -9,11 +9,13 @@ import {Specialite} from "../model/specialite";
 import {Praticien} from "../model/praticien";
 import {Patient} from "../model/patient";
 import {Utilisateur} from "../model/utilisateur";
+import {Adresse} from "../model/adresse";
 
 @Injectable()
 export class PatientRdvInformationHttpService {
 
   private date: Date = new Date();
+  private adresse: Adresse = new Adresse("Impasse des marmottes", "64230", "Lescar");
   private rendezvouslist: Array<RendezVous> = new Array<RendezVous>();
   private praticiens: Array<Praticien> = new Array<Praticien>();
   private motifs: Array<Motif> = new Array<Motif>();
@@ -28,8 +30,8 @@ export class PatientRdvInformationHttpService {
   private motif: Motif = new Motif(1, 0, "Rhume", this.specialite, this.modalites);
   private modalite: Modalite = new Modalite(1, 0, 10, 1, 2, true, this.praticien, this.rendezvouslist, this.motif);
   private rendezvous: RendezVous = new RendezVous(1, 0, true, this.utilisateur, this.patient, this.modalite, this.creneaux);
-  private lieu: Lieu = new Lieu(1, 0, "Domicile");
-  private creneaudisponible: CreneauDisponible = new CreneauDisponible(1, 0, this.date, this.lieu, this.praticien, this.rendezvous);
+  private lieu: Lieu = new Lieu(1, 0, "Domicile", this.adresse);
+  private creneaudisponible: CreneauDisponible = new CreneauDisponible(1, 0, this.date, this.date, this.lieu, this.praticien, this.rendezvous);
 
 
   constructor() {
@@ -42,10 +44,38 @@ export class PatientRdvInformationHttpService {
     this.specialites.push(this.specialite);
   }
 
-  findCreneauDisponibleById(id: number): CreneauDisponible {
-    return this.creneaudisponible;
+
+  findRendezvousById(id: number): RendezVous{
+    return this.rendezvous
   }
 
-  findRendezvousById
+
+  findHeureDebutRendezvous(id: number): Date {
+
+  let rendezvousTrouve = this.findRendezvousById(id);
+  let heureDebut = rendezvousTrouve.creneaux[0].debut;
+
+  for(let creneau of rendezvousTrouve.creneaux){
+    if(creneau.debut < heureDebut){
+      heureDebut = creneau.debut;
+    }
+  }
+  return heureDebut;
+  }
+
+  findHeureFinRendezvous(id: number): Date {
+
+    let rendezvousTrouve = this.findRendezvousById(id);
+    let heureFin = rendezvousTrouve.creneaux[0].fin;
+
+    for(let creneau of rendezvousTrouve.creneaux){
+      if(creneau.debut > heureFin){
+        heureFin = creneau.debut;
+      }
+    }
+    return heureFin;
+  }
+
+
 
 }
