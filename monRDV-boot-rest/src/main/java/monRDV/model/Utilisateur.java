@@ -20,32 +20,41 @@ import javax.persistence.Version;
 
 import org.hibernate.validator.constraints.UniqueElements;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "utilisateur")
 public class Utilisateur {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	
 	@Column(name = "email")
+	@JsonView(Views.ViewCommon.class)
 	// @UniqueElements - TODO : faire valider l'annotation par Eric et Jérome
 	private String email;
 	
 	@Column(name = "telephone")
+	@JsonView(Views.ViewUtilisateur.class)
 	private String telephone;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "date_creation")
+	@JsonView(Views.ViewCommon.class)
 	private Date dateCreation;
 
 	@Column(name = "mot_de_passe")
+	@JsonView(Views.ViewUtilisateur.class)
 	private String motDePasse;
 
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewUtilisateur.class)
 	private Profil profil;
 
 	@OneToMany(mappedBy = "utilisateur")
@@ -56,6 +65,7 @@ public class Utilisateur {
 
 	@OneToOne
 	@JoinColumn(name = "praticien_id")
+	@JsonView(Views.ViewPraticien.class)
 	private Praticien praticien;
 
 	public Utilisateur() {
@@ -86,13 +96,6 @@ public class Utilisateur {
 		this.patients = patients;
 	}
 
-	public List<RendezVous> getRendezVous() {
-		return rendezVous;
-	}
-
-	public void setRendezVous(List<RendezVous> rendezVous) {
-		this.rendezVous = rendezVous;
-	}
 
 	public String getEmail() {
 		return email;
@@ -142,13 +145,6 @@ public class Utilisateur {
 		this.patients = patients;
 	}
 
-	public List<RendezVous> getrendezVous() {
-		return rendezVous;
-	}
-
-	public void setListRendezVous(List<RendezVous> rendezVous) {
-		this.rendezVous = rendezVous;
-	}
 
 	public Praticien getPraticien() {
 		return praticien;
@@ -157,5 +153,15 @@ public class Utilisateur {
 	public void setPraticien(Praticien praticien) {
 		this.praticien = praticien;
 	}
+
+	public List<RendezVous> getRendezVous() {
+		return rendezVous;
+	}
+
+	public void setRendezVous(List<RendezVous> rendezVous) {
+		this.rendezVous = rendezVous;
+	}
+	
+	
 
 }

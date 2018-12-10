@@ -17,8 +17,11 @@ import javax.persistence.TemporalType;
 import javax.persistence.Version;
 import javax.validation.constraints.Size;
 
-
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+
 
 @Entity
 @Table(name = "patient")
@@ -26,30 +29,40 @@ public class Patient {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name = "defaut")
+	@JsonView(Views.ViewCommon.class)
 	private Boolean defaut;
 	@Column(name = "nom")
 	@Size(min=3, max=100, message="Le nom est obligatoire (entre 3 et 100 caractères)")
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Column(name = "prenom")
+	@JsonView(Views.ViewCommon.class)
 	private String prenom;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "date_naissance")
+	@JsonView(Views.ViewCommon.class)
 	private Date dateNaissance;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "date_creation")
+	@JsonView(Views.ViewCommon.class)
 	private Date dateCreation;
 
 	@ManyToOne
 	@JoinColumn(name = "utilisateur_id")
+	@JsonView(Views.ViewPatient.class)
 	private Utilisateur utilisateur;
 
+	
+	// TO DO
 	@OneToMany(mappedBy = "patient")
 	private List<RendezVous> rendezVous = new ArrayList<RendezVous>();
 
@@ -73,13 +86,6 @@ public class Patient {
 		this.version = version;
 	}
 
-	public List<RendezVous> getRendezVous() {
-		return rendezVous;
-	}
-
-	public void setRendezVous(List<RendezVous> rendezVous) {
-		this.rendezVous = rendezVous;
-	}
 
 	public Boolean getDefaut() {
 		return defaut;
@@ -129,12 +135,14 @@ public class Patient {
 		this.utilisateur = utilisateur;
 	}
 
-	public List<RendezVous> getrendezVous() {
+	public List<RendezVous> getRendezVous() {
 		return rendezVous;
 	}
 
-	public void setListRendezVous(List<RendezVous> rendezVous) {
+	public void setRendezVous(List<RendezVous> rendezVous) {
 		this.rendezVous = rendezVous;
 	}
+
+
 
 }

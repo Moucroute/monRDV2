@@ -13,31 +13,42 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "rendezvous")
 public class RendezVous {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	
+	@JsonView(Views.ViewCommon.class)
 	private Boolean statut;
 
 	@ManyToOne
 	@JoinColumn(name = "utilisateur_id")
+	@JsonView(Views.ViewUtilisateur.class)
 	private Utilisateur utilisateur;
 
+	
+	// TO DO view
 	@ManyToOne
 	@JoinTable(name = "patient_rendezvous")
+	@JsonView(Views.ViewPatient.class)
 	private Patient patient;
 
 	@ManyToOne
 	@JoinColumn(name = "modalite_id")
+	@JsonView(Views.ViewUtilisateur.class)
 	private Modalite modalite;
 
+	
 	@OneToMany(mappedBy = "rendezVous")
 	private List<CreneauDisponible> creneaux = new ArrayList<CreneauDisponible>();
 
@@ -61,13 +72,6 @@ public class RendezVous {
 		this.version = version;
 	}
 
-	public List<CreneauDisponible> getCreneaux() {
-		return creneaux;
-	}
-
-	public void setCreneaux(List<CreneauDisponible> creneaux) {
-		this.creneaux = creneaux;
-	}
 
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
@@ -93,13 +97,6 @@ public class RendezVous {
 		this.modalite = modalite;
 	}
 
-	public List<CreneauDisponible> getcreneaux() {
-		return creneaux;
-	}
-
-	public void setRendezVous(List<CreneauDisponible> creneaux) {
-		this.creneaux = creneaux;
-	}
 
 	public Boolean getStatut() {
 		return statut;
@@ -107,6 +104,14 @@ public class RendezVous {
 
 	public void setStatut(Boolean statut) {
 		this.statut = statut;
+	}
+
+	public List<CreneauDisponible> getCreneaux() {
+		return creneaux;
+	}
+
+	public void setCreneaux(List<CreneauDisponible> creneaux) {
+		this.creneaux = creneaux;
 	}
 
 

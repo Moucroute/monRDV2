@@ -1,4 +1,4 @@
-package monRDV.controller;
+package monRDV.model;
 
 public class PatientForm {
 	private Long id;
