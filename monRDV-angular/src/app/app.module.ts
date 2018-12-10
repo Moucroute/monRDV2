@@ -11,16 +11,16 @@ import { InscriptionFormPatientComponent } from './model/inscription-form-patien
 import { PatientDonneesUtilisateurComponent } from './patient-donnees-utilisateur/patient-donnees-utilisateur.component';
 import {PatientRdvInformationHttpService} from './patient-rdv-information/patient-rdv-information-http.service';
 import {PatientRdvInformationComponent} from './patient-rdv-information/patient-rdv-information.component';
+import {PatientDonneesUtilisateurService} from './patient-donnees-utilisateur/patient-donnees-utilisateur.service';
 
 
 
 const routes: Routes = [
   {path: 'patient/mesrdvavenir', component: PatientCalendrierComponent},
   {path: 'patient/mesrdvpasses', component: PatientRdvInformationComponent},
-  {path: 'patient/mesinfos', component: PatientDonneesUtilisateurComponent},
-  {path: '', redirectTo: 'patient/mesrdvavenir', pathMatch: 'full'},
-
-];
+  {path: 'patient/mesinfos', component: [PatientDonneesUtilisateurComponent, PatientMesPatientsComponent]},
+  {path: '', redirectTo: 'patient/mesrdvavenir', pathMatch: 'full'}
+]
 
 
 @NgModule({
@@ -36,7 +36,8 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [PatientMesPatientsHttpService, PatientRdvInformationHttpService],
+  providers: [PatientMesPatientsHttpService, PatientRdvInformationHttpService,
+    PatientCalendrierHttpService, PatientDonneesUtilisateurService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
