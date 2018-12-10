@@ -6,17 +6,28 @@ export class CreneauDisponible {
   private _id: number;
   private _version: number;
   private _debut: Date;
+  private _fin: Date;
   private _lieu: Lieu;
   private _praticien: Praticien;
   private _rendezVous: RendezVous;
 
-  constructor(id?: number, version?: number, debut?: Date, lieu?: Lieu, praticien?: Praticien, rendezVous?: RendezVous) {
+  constructor(id?: number, version?: number, debut?: Date, fin?: Date, lieu?: Lieu, praticien?: Praticien, rendezVous?: RendezVous) {
     this._id = id;
     this._version = version;
     this._debut = debut;
+    this._fin = fin;
     this._lieu = lieu;
     this._praticien = praticien;
     this._rendezVous = rendezVous;
+  }
+
+
+  get fin(): Date {
+    return this._fin;
+  }
+
+  set fin(value: Date) {
+    this._fin = value;
   }
 
   get id(): number {
