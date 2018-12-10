@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PatientCalendrierComponent } from './patient-calendrier/patient-calendrier.component';
+import { InscriptionFormPatientComponent } from './model/inscription-form-patient/inscription-form-patient.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    InscriptionFormPatientComponent
     PatientCalendrierComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
