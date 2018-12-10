@@ -8,7 +8,6 @@ import {PatientMesPatientsHttpService} from './patient-mes-patients/patient-mes-
 import {Routes} from '@angular/router';
 import {RouterModule} from '@angular/router';
 import {PatientCalendrierComponent} from './patient-calendrier/patient-calendrier.component';
-import {InscriptionFormPatientComponent} from './model/inscription-form-patient/inscription-form-patient.component';
 import {PatientDonneesUtilisateurComponent} from './patient-donnees-utilisateur/patient-donnees-utilisateur.component';
 import {PatientDonneesUtilisateurHttpService} from './patient-donnees-utilisateur/patient-donnees-utilisateur-http.service';
 import {PatientRdvInformationComponent} from './patient-rdv-information/patient-rdv-information.component';
@@ -30,7 +29,6 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     PatientDonneesUtilisateurComponent,
-    InscriptionFormPatientComponent,
     PatientCalendrierComponent,
     PatientRdvInformationComponent,
     PatientMesPatientsComponent
