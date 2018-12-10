@@ -9,6 +9,10 @@ import org.springframework.data.repository.query.Param;
 import monRDV.model.Patient;
 
 public interface IRepositoryPatient extends JpaRepository<Patient, Long> {
+	
+	//Requete find patient with default == true car c'est l'utilisateur
+	@Query("select p from Patient p where p.defaut = true ")
+	Patient findPatientDefaut(@Param("id") Long identifiantUtilisateur);
 
 	@Query("select p from Patient p join p.utilisateur u where u.id = :id")
 	List<Patient> findByUtilisateur(@Param("id") Long identifiantUtilisateur);
@@ -16,7 +20,7 @@ public interface IRepositoryPatient extends JpaRepository<Patient, Long> {
 //	@Query("select p from Patient p join p.RendezVous rdv where rdv.id = :id")
 //	Patient findByRdv(@Param("id") Long identifiantRdv);
 	
-//	@Query("select p from Patient p join p.RendezVous prdv join  where rdv.id = :id")
+//	@Query("select p from Patient p join p.RendezVous p.rdv join  where rdv.id = :id")
 //	List<Patient> findViaRdvByUtilisateur(@Param("id") Long identifiantUtilisateur);
 
 

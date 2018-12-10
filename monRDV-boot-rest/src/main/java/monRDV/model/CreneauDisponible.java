@@ -13,28 +13,37 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "creneauDisponible")
 public class CreneauDisponible {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date_debut")
+	@JsonView(Views.ViewCommon.class)
 	private Date debut;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date_fin")
+	@JsonView(Views.ViewCommon.class)
 	private Date fin;
 	@ManyToOne
 	@JoinColumn(name = "lieu_id")
+	@JsonView(Views.ViewCommon.class)
 	private Lieu lieu;
 	
 	@ManyToOne
+	@JsonView(Views.ViewPraticien.class)
 	private Praticien praticien;
 	
-	@ManyToOne	
+	@ManyToOne
+	@JsonView(Views.ViewUtilisateur.class)
 	private RendezVous rendezVous;
 
 	public CreneauDisponible() {
@@ -96,5 +105,7 @@ public class CreneauDisponible {
 	public void setRendezVous(RendezVous rendezVous) {
 		this.rendezVous = rendezVous;
 	}
+
+
 
 }
