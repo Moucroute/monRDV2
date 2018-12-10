@@ -1,20 +1,15 @@
 package monRDV.controller;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,13 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import monRDV.model.CreneauDisponible;
-import monRDV.model.InscriptionFormPatient;
 import monRDV.model.Patient;
-import monRDV.model.PatientForm;
-import monRDV.model.Profil;
-import monRDV.model.RendezVous;
-import monRDV.model.Utilisateur;
 import monRDV.model.Views;
 import monRDV.repository.IRepositoryCreneauDisponible;
 import monRDV.repository.IRepositoryPatient;
@@ -59,7 +48,7 @@ public class PatientController {
 	
 	//Ci dessous, pour afficher les infos du compte Patient
 	
-	@GetMapping({"/monComptePatient/{id}"})
+	@GetMapping("/monComptePatient/{id}")
 	@JsonView(Views.ViewPatient.class)
 	public Patient findPatients(@PathVariable Long id) {
 		return repoPatient.findPatientDefaut(id); 
@@ -67,7 +56,7 @@ public class PatientController {
 
 	
 	//Ci dessous, pour afficher la liste des patients
-	@GetMapping({"/monComptePatient/{id}/MesPatients"})
+	@GetMapping("/monComptePatient/{id}/MesPatients")
 	@JsonView(Views.ViewPatient.class)
 	public List<Patient> findPatientDefaut(@PathVariable Long id) {
 		return repoUtilisateur.findPatientsByUtilisateur(id); 
@@ -80,8 +69,31 @@ public class PatientController {
 	public Patient create(@RequestBody Patient patient) {
 		return repoPatient.save(patient);
 	}
+	
+	@PutMapping("/monComptePatient/{id}/MesModifs") 
+	@JsonView(Views.ViewPatient.class)
+	public Patient update(@PathVariable Long id, @RequestBody Patient patient) {
+		return repoPatient.save(patient);
+	}
+	
+	@DeleteMapping("/monComptePatient/MesPatientsDelete/{id}")
+	@JsonView(Views.ViewPatient.class)
+	public void delete(@PathVariable Long id) {
+		
+		try {
+			repoPatient.deleteById(id);
+		}
+		
+		catch(Exception e) {
+			
+			System.out.println("supprimer rdv avant de supprimer le patient");
+		}
+		
+	}
 
 
+	
+	
 //	@GetMapping("/inscription")
 //	public String inscription(Model model) {
 //		model.addAttribute("page", "patient");
@@ -120,94 +132,10 @@ public class PatientController {
 //			return "patient/inscriptionPatientValidation";
 //		}
 //	}
-//
-////	@GetMapping("/edit")
-////	public String edit(@RequestParam Long id, Model model) {
-////		model.addAttribute("page", "patient");
-////		Optional<Patient> opt = repoPatient.findById(id);
-////		if (opt.isPresent()) {
-////			model.addAttribute("patient", opt.get());
-////		} else {
-////			model.addAttribute("patient", new Patient());
-////		}
-////
-////		return "patient/mesInfosPatient";
-////	}
-//
-//	@GetMapping("/editMesInfosPatient")
-//	public String editInfosPatients(@RequestParam Long id, Model model) {
-//		List<Patient> patientsUt = new ArrayList<Patient>();
-//
-//		model.addAttribute("page", "patient");
-//		Utilisateur utilisateur = repoUtilisateur.findWithPatients(id);
-//		if (utilisateur != null) {
-//			for (Patient patient : utilisateur.getPatients()) {
-//				if (patient.getDefaut()) {
-//					PatientForm patientForm = new PatientForm(patient.getId(), patient.getNom(), patient.getPrenom());
-//					patientForm.setEmail(patient.getUtilisateur().getEmail());
-//					patientForm.setMotDePasse(patient.getUtilisateur().getMotDePasse());
-//					patientForm.setTelephone(patient.getUtilisateur().getTelephone());
-//					model.addAttribute("patient", patientForm);
-//				} else {
-//					patientsUt.add(patient);
-//				}
-//			}
-//		} else {
-//			model.addAttribute("patient", new PatientForm());
-//		}
-//
-//		model.addAttribute("patientsUt", patientsUt);
-//
-//		return "patient/mesInfosPatient";
-//	}
-//
-//	@PostMapping("/save")
-//	public String save(@ModelAttribute("patient") @Valid PatientForm patientForm, BindingResult result, Model model) {
-//
-//		if (result.hasErrors()) {
-//			model.addAttribute("page", "patient");
-//			model.addAttribute("patients", repoPatient.findAll());
-//
-//			return "patient/mesInfosPatient";
-//		}
-//
-//		Optional<Patient> optp = repoPatient.findById(patientForm.getId());
-//
-//		if (optp.isPresent()) {
-//			Patient patient = optp.get();
-//
-//			Optional<Utilisateur> optu = repoUtilisateur.findById(patient.getUtilisateur().getId());
-//
-//			patient.setNom(patientForm.getNom());
-//			patient.setPrenom(patientForm.getPrenom());
-//
-//			repoPatient.save(patient);
-//
-//			if (optu.isPresent()) {
-//				Utilisateur utilisateur = optu.get();
-//
-//				utilisateur.setEmail(patientForm.getEmail());
-//				utilisateur.setMotDePasse(patientForm.getMotDePasse());
-//				utilisateur.setTelephone(patientForm.getTelephone());
-//
-//				repoUtilisateur.save(utilisateur);
-//			}
-//
-//		}
-//
-//		return "forward:editMesInfosPatient";
-//	}
-//
-//	@GetMapping("/delete")
-//	public String delete(@RequestParam Long id) {
-//		Optional<Patient> opt = repoPatient.findById(id);
-//
-//		if (opt.isPresent()) {
-//			repoPatient.delete(opt.get());
-//		}
-//
-//		return "forward:list";
-//	}
+
+
+
+
 //
 //	@RequestMapping("/connexion")
 //	public String connexion(@ModelAttribute("utilisateur") @Valid Utilisateur utilisateur, BindingResult result,
