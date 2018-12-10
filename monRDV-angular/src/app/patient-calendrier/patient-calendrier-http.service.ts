@@ -15,8 +15,8 @@ export class PatientCalendrierHttpService {
 
   private utilisateur: Utilisateur = new Utilisateur;
   private patients: Array<Patients> = new Array<Patients>();
-  // private rendezVouss: Array<RendezVous> = new Array<RendezVous>();
-  // private creneaux: Array<CreneauDisponible> = new Array<CreneauDisponible>();
+  private rendezVouss: Array<RendezVous> = new Array<RendezVous>();
+  private creneaux: Array<CreneauDisponible> = new Array<CreneauDisponible>();
 
   constructor(private http: Http) {
   }
@@ -34,8 +34,11 @@ export class PatientCalendrierHttpService {
   //   return this.rendezVouss;
   // }
 
-  findByUtilisateur(id: number): Observable<Response> {
-    return this.http.get('http://localhost:8080/salle/' + id);
+  findUtilisateurById(id: number): Observable<Response> {
+    return this.http.get('http://localhost:8080/patient/monComptePatient/' + id);
+  }
+  findCreneauByRendezVous(id: number): Observable<Response> {
+    return this.http.get('http://localhost:8080/patient/mesRendezVous/' + id);
   }
 }
 
