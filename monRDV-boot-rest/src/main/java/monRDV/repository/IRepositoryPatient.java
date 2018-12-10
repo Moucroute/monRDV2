@@ -12,7 +12,7 @@ import monRDV.model.RendezVous;
 public interface IRepositoryPatient extends JpaRepository<Patient, Long> {
 	
 	//Requete find patient with default == true car c'est l'utilisateur
-	@Query("select p from Patient p where p.defaut = true ")
+	@Query("select p from Patient p join p.utilisateur u where u.id = :id and p.defaut = true")
 	Patient findPatientDefaut(@Param("id") Long identifiantUtilisateur);
 
 	@Query("select p from Patient p join p.utilisateur u where u.id = :id")

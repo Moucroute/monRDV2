@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "motif")
 public class Motif {
@@ -20,12 +22,15 @@ public class Motif {
 	@Id
 	@GeneratedValue
 	@Column(name = "id", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private Integer version;
 
 	@Column(name = "libelle", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private String libelle;
 
 	@ManyToOne
