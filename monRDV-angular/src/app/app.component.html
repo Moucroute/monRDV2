@@ -5,18 +5,16 @@
   <div class="container-fluid">
 
 
-
     <ul class="nav navbar-nav">
 
-      <li role="presentation" ><a [routerLink]="['/patient/mesrdvavenir'] "routerLinkActive="active">Mes RDV a Venir</a></li>
-      <li role="presentation" ><a [routerLink]="['/patient/mesrdvpasses'] "routerLinkActive="active">Mes RDV Passes</a></li>
-      <li role="presentation" ><a [routerLink]="['/patient/mesinfos'] "routerLinkActive="active">Mes Infos</a></li>
+      <li role="presentation" ><a [routerLink]="['patient/mesrdvavenir']" routerLinkActive="active">Mes RDV a Venir</a></li>
+      <li role="presentation" ><a [routerLink]="['patient/mesrdvpasses']" routerLinkActive="active">Mes RDV Passes</a></li>
+      <li role="presentation" ><a [routerLink]="['patient/mesinfos']" routerLinkActive="active">Mes Infos</a></li>
+
     </ul>
 
 
   </div>
 </nav>
-
-
 
 <router-outlet></router-outlet>
