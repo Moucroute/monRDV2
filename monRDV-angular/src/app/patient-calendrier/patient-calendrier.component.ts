@@ -9,8 +9,8 @@ import {Utilisateur} from '../model/utilisateur';
 })
 export class PatientCalendrierComponent implements OnInit {
   constructor() {
-    const arthur: Utilisateur = new Utilisateur();
-    const rdv1: RendezVous = new RendezVous(1, 0, true, arthur);
+    // const arthur: Utilisateur = new Utilisateur();
+    // const rdv1: RendezVous = new RendezVous(1, 0, true, arthur);
   }
 
   ngOnInit() {

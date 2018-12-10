@@ -13,6 +13,7 @@ import {PatientDonneesUtilisateurComponent} from './patient-donnees-utilisateur/
 import {PatientRdvInformationHttpService} from './patient-rdv-information/patient-rdv-information-http.service';
 import {PatientCalendrierHttpService} from './patient-calendrier/patient-calendrier-http.service';
 import {PatientDonneesUtilisateurHttpService} from './patient-donnees-utilisateur/patient-donnees-utilisateur-http.service';
+import {PatientRdvInformationComponent} from './patient-rdv-information/patient-rdv-information.component';
 
 
 const routes: Routes = [
