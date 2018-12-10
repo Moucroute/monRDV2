@@ -42,6 +42,7 @@ export class PatientCalendrierHttpService {
   findCreneauByRendezVous(id: number): Observable<Response> {
     return this.http.get('http://localhost:8080/patient/mesRendezVous/' + id);
   }
+
 }
 
 
