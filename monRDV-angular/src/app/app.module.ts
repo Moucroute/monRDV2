@@ -13,7 +13,6 @@ import { InscriptionFormPatientComponent } from './model/inscription-form-patien
 import { PatientDonneesUtilisateurComponent } from './patient-donnees-utilisateur/patient-donnees-utilisateur.component';
 import {PatientDonneesUtilisateurHttpService} from './patient-donnees-utilisateur/patient-donnees-utilisateur-http.service';
 
-
 const routes: Routes = [
   {path: 'patient/mesrdvavenir', component: PatientCalendrierComponent},
   {path: 'patient/mesrdvpasses', component: PatientRdvInformationComponent},
