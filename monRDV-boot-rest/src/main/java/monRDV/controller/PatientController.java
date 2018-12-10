@@ -93,7 +93,7 @@ public class PatientController {
 	}
 
 	@GetMapping("/Historique/{id}")
-	@JsonView(Views.ViewUtilisateurWithRendezVous.class)
+	@JsonView(Views.ViewCreneauDisponibleWithPraticien.class)
 	public List <RendezVous> findByUtilisateur(@PathVariable Long id) {
 		return repoRendezVous.findByUtilisateur(id); 
 	}

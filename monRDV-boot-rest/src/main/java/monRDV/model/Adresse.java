@@ -2,12 +2,18 @@ package monRDV.model;
 
 import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Embeddable
 public class Adresse {
 	
+	@JsonView(Views.ViewCommon.class)
 	private String rue;
+	@JsonView(Views.ViewCommon.class)
 	private String codePostal;
+	@JsonView(Views.ViewCommon.class)
 	private String ville;
+	@JsonView(Views.ViewCommon.class)
 	private String informations;
 
 	public Adresse() {

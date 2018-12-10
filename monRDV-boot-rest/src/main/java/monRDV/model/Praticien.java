@@ -16,27 +16,35 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "praticien")
 public class Praticien {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private long id;
 	
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private Integer version;
 	
 	@Column(name = "nom", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	
 	@Column(name = "prenom", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private String prenom;
 	
 	@Column(name = "Prend_Carte_Vitale")
+	@JsonView(Views.ViewCommon.class)
 	private Boolean prendCarteVitale;
 	
 	@Column(name = "Validation_Auto")
+	@JsonView(Views.ViewCommon.class)
 	private Boolean validationAuto;
 
 	@ManyToMany
@@ -51,6 +59,7 @@ public class Praticien {
 	private List<Modalite> modalites = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "praticien")
+	
 	private List<CreneauDisponible> creneaux = new ArrayList<>();
 
 	@OneToOne(mappedBy = "praticien")
