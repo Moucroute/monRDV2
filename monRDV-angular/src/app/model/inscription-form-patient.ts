@@ -2,7 +2,7 @@ export class InscriptionFormPatient {
 
   nom: string;
   prenom: string;
-  dtNaissance: date;
+  dtNaissance: Date;
   telephone: string;
   motDePasse: string;
   confirmationMotDePasse: string;
@@ -10,7 +10,7 @@ export class InscriptionFormPatient {
   confirmationEmail: string;
 
 
-  constructor(nom?: string, prenom?: string, dtNaissance?: date, telephone?: string, motDePasse?: string, confirmationMotDePasse?: string, email?: string, confirmationEmail?: string) {
+  constructor(nom?: string, prenom?: string, dtNaissance?: Date, telephone?: string, motDePasse?: string, confirmationMotDePasse?: string, email?: string, confirmationEmail?: string) {
     this.nom = nom;
     this.prenom = prenom;
     this.dtNaissance = dtNaissance;
