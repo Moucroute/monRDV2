@@ -35,6 +35,7 @@ public class Motif {
 
 	@ManyToOne
 	@JoinColumn(name = "specialite_id")
+	@JsonView(Views.ViewCommon.class)
 	private Specialite specialite;
 
 	@OneToMany(mappedBy = "motif")
