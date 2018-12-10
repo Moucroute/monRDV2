@@ -43,7 +43,7 @@ public class CreneauDisponible {
 	private Praticien praticien;
 	
 	@ManyToOne
-	@JsonView(Views.ViewUtilisateur.class)
+	@JsonView(Views.ViewCreneauDisponible.class)
 	private RendezVous rendezVous;
 
 	public CreneauDisponible() {
