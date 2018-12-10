@@ -1,4 +1,7 @@
 import {Profil} from './profil';
+import {Patient} from './patient';
+import {RendezVous} from './rendez-vous';
+import {Praticien} from './praticien';
 
 
 export class Utilisateur {
@@ -9,9 +12,12 @@ export class Utilisateur {
   private _dateCreation: Date;
   private _motDePasse: string;
   private _profil: Profil;
+  private _patients: Array<Patient> = new Array<Patient>();
+  private _rendezVous: Array<RendezVous> = new Array<RendezVous>();
+  private _praticien: Praticien;
 
 
-  constructor(id?: number, version?: number, email?: string, telephone?: string, dateCreation?: Date, motDePasse?: string, profil?: Profil) {
+  constructor(id?: number, version?: number, email?: string, telephone?: string, dateCreation?: Date, motDePasse?: string, profil?: Profil, patients?: Array<Patient>, rendezVous?: Array<RendezVous>, praticien?: Praticien) {
     this._id = id;
     this._version = version;
     this._email = email;
@@ -19,8 +25,10 @@ export class Utilisateur {
     this._dateCreation = dateCreation;
     this._motDePasse = motDePasse;
     this._profil = profil;
+    this._patients = patients;
+    this._rendezVous = rendezVous;
+    this._praticien = praticien;
   }
-
 
   get id(): number {
     return this._id;
@@ -76,5 +84,29 @@ export class Utilisateur {
 
   set profil(value: Profil) {
     this._profil = value;
+  }
+
+  get patients(): Array<Patient> {
+    return this._patients;
+  }
+
+  set patients(value: Array<Patient>) {
+    this._patients = value;
+  }
+
+  get rendezVous(): Array<RendezVous> {
+    return this._rendezVous;
+  }
+
+  set rendezVous(value: Array<RendezVous>) {
+    this._rendezVous = value;
+  }
+
+  get praticien(): Praticien {
+    return this._praticien;
+  }
+
+  set praticien(value: Praticien) {
+    this._praticien = value;
   }
 }
