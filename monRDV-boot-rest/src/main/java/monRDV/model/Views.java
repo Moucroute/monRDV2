@@ -24,6 +24,18 @@ public class Views {
 
 	}
 	
+	public static class ViewCreneauDisponibleWithPraticien  extends ViewCreneauDisponible {
+
+	}
+	
+	
+	public static class ViewCreneauDisponibleWithLieu  extends ViewCreneauDisponible {
+
+	}
+	
+	
+	
+	
 	public static class ViewPraticien extends ViewUtilisateur {
 
 	}

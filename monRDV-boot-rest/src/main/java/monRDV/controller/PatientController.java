@@ -49,7 +49,7 @@ public class PatientController {
 	
 	@GetMapping("/monComptePatient/{id}")
 	@JsonView(Views.ViewPatient.class)
-	public Patient findPatients(@PathVariable Long id) {
+	public Patient findPatientDefaut(@PathVariable Long id) {
 		return repoPatient.findPatientDefaut(id); 
 	}
 
@@ -57,7 +57,7 @@ public class PatientController {
 	//Ci dessous, pour afficher la liste des patients
 	@GetMapping("/monComptePatient/{id}/MesPatients")
 	@JsonView(Views.ViewPatient.class)
-	public List<Patient> findPatientDefaut(@PathVariable Long id) {
+	public List<Patient> findPatientsByUtilisateur(@PathVariable Long id) {
 		return repoUtilisateur.findPatientsByUtilisateur(id); 
 	}
 

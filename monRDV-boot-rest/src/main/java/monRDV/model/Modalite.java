@@ -47,7 +47,7 @@ public class Modalite {
 
 	@ManyToOne
 	@JoinColumn(name="praticien_id")
-	@JsonView(Views.ViewPraticien.class)
+	@JsonView(Views.ViewCommon.class)
 	private Praticien praticien;
 
 	@OneToMany(mappedBy="modalite")
@@ -55,7 +55,6 @@ public class Modalite {
 
 	@ManyToOne
 	@JoinColumn(name = "motif_id")
-	@JsonView(Views.ViewCommon.class)
 	private Motif motif;
 
 	public Modalite() {

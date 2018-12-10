@@ -15,7 +15,7 @@ export class PatientCalendrierHttpService {
 
   private utilisateur: Utilisateur = new Utilisateur;
   private patients: Array<Patients> = new Array<Patients>();
-  private rendezVouss: Array<RendezVous> = new Array<RendezVous>();
+  private rendezVous: Array<RendezVous> = new Array<RendezVous>();
   private creneaux: Array<CreneauDisponible> = new Array<CreneauDisponible>();
 
   constructor(private http: Http) {
@@ -25,18 +25,19 @@ export class PatientCalendrierHttpService {
     this.http.get('http://localhost:8080/patient/monComptePatient/').subscribe(resp => {
       this.utilisateur = resp.json();
       this.patients = resp.json();
-      // this.rendezVouss = resp.json();
-      // this.creneaux = resp.json();
+      this.rendezVous = resp.json();
+      this.creneaux = resp.json();
     }, err => console.log(err));
   }
-  //
-  // findAll(): Array<RendezVous> {
-  //   return this.rendezVouss;
-  // }
+
+  findAll(): Array<RendezVous> {
+    return this.rendezVous;
+  }
 
   findUtilisateurById(id: number): Observable<Response> {
     return this.http.get('http://localhost:8080/patient/monComptePatient/' + id);
   }
+
   findCreneauByRendezVous(id: number): Observable<Response> {
     return this.http.get('http://localhost:8080/patient/mesRendezVous/' + id);
   }
