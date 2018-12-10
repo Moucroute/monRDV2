@@ -29,13 +29,18 @@ export class PatientCalendrierHttpService {
       this.creneaux = resp.json();
     }, err => console.log(err));
   }
+  //
+  // findAll(): Array<RendezVous> {
+  //   return this.rendezVouss;
+  // }
 
   findAll(): Array<RendezVous> {
     return this.rendezVous;
+  findUtilisateurById(id: number): Observable<Response> {
+    return this.http.get('http://localhost:8080/patient/monComptePatient/' + id);
   }
-
-  findByUtilisateur(id: number): Observable<Response> {
-    return this.http.get('http://localhost:8080/salle/' + id);
+  findCreneauByRendezVous(id: number): Observable<Response> {
+    return this.http.get('http://localhost:8080/patient/mesRendezVous/' + id);
   }
 }
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Patient} from '../model/patient';
-import {Http} from '@angular/http';
+import {Http, Response} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class PatientMesPatientsHttpService {

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {RendezVous} from '../model/rendez-vous';
+import {Utilisateur} from '../model/utilisateur';
 import {PatientCalendrierHttpService} from './patient-calendrier-http.service';
-import {RendezVous} from '../model/rendezVous';
 
 @Component({
   selector: 'app-patient-calendrier',
@@ -8,18 +9,20 @@ import {RendezVous} from '../model/rendezVous';
   styleUrls: ['./patient-calendrier.component.css']
 })
 export class PatientCalendrierComponent implements OnInit {
+  constructor(private patientCalendrierservice: PatientCalendrierHttpService) {
+    // const arthur: Utilisateur = new Utilisateur();
+    // const rdv1: RendezVous = new RendezVous(1, 0, true, arthur);
 
-  private objet: Object;
 
-  constructor(private patientService: PatientCalendrierHttpService) { }
+  }
 
   ngOnInit() {
   }
 
-  listrdv(id: number): Array<RendezVous> {
 
-
-
-    return this.patientService.findbyUtilisateur(id);
+  listRendezVous(id: number){
+    return this.patientCalendrierservice.findUtilisateurById(id);
   }
 }
+
+
