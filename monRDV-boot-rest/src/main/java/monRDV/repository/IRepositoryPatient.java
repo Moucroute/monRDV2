@@ -18,6 +18,9 @@ public interface IRepositoryPatient extends JpaRepository<Patient, Long> {
 	List<Patient> findByUtilisateur(@Param("id") Long identifiantUtilisateur);
 
 //	@Query("select p from Patient p join p.RendezVous rdv where rdv.id = :id")
+//	Patient findRdvByPatient(@Param("id") Long identifiantRdv);
+	
+//	@Query("select p from Patient p join p.RendezVous rdv where rdv.id = :id")
 //	Patient findByRdv(@Param("id") Long identifiantRdv);
 	
 //	@Query("select p from Patient p join p.RendezVous p.rdv join  where rdv.id = :id")
