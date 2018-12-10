@@ -13,10 +13,9 @@
           <tr *ngFor="let patient of list()">
             <td>{{patient.nom}}</td>
             <td>{{patient.prenom}}</td>
-            <td>{{patient.dateNaissance}}</td>
+            <td>{{patient.dateNaissance | date : 'dd/MM/yyyy' }}</td>
             <td>
               <div class="btn-group btn-group-xs">
-                <button class="btn btn-info"><span (click)="edit(patient.id)" class="glyphicon glyphicon-pencil"></span></button>
                 <button class="btn btn-danger"><span (click)="delete(patient.id)" class="glyphicon glyphicon-trash"></span></button>
               </div>
             </td>
@@ -39,7 +38,7 @@
           <input [(ngModel)]="current.prenom"  type="text" class="form-control" id="prenom">
         </div>
         <div class="form-group">
-          <label for="dateNaissance">Code postal:</label>
+          <label for="coddateNaissance">dateNaissance:</label>
           <input [(ngModel)]="current.dateNaissance" type="text" class="form-control" id="coddateNaissance">
         </div>
       </div>

@@ -7,8 +7,8 @@ export class Patient {
   private _defaut: boolean;
   private _nom: string;
   private _prenom: string;
-  private _dateNaissance: Date;
-  private _dateCreation: Date;
+  private _dateNaissance: Date = new Date();
+  private _dateCreation: Date = new Date();
   private _utilisateur: Utilisateur;
   private _rendezVous: Array<RendezVous> = new Array<RendezVous>();
 

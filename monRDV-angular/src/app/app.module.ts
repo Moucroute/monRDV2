@@ -17,6 +17,7 @@ import {PatientRdvInformationComponent} from './patient-rdv-information/patient-
 import {PatientMesRdvAVenirComponent} from './patient-mes-rdv-a-venir/patient-mes-rdv-a-venir.component';
 import { PatientMesRdvPassesComponent } from './patient-mes-rdv-passes/patient-mes-rdv-passes.component';
 import { PatientMesInfosComponent } from './patient-mes-infos/patient-mes-infos.component';
+import {PatientMesPatientsService} from './patient-mes-patients/patient-mes-patients.service';
 
 
 const routes: Routes = [

@@ -12,8 +12,8 @@ export class PatientMesPatientsHttpService {
     this.load();
   }
 
-  load() {
-    this.http.get('http://localhost:8080/patient/mesinfos').subscribe(resp => {
+  load(id: number) {
+    this.http.get('http://localhost:8080/monComptePatient/'+id +'/MesPatients').subscribe(resp => {
       this.patients = resp.json();
     }, err => console.log(err));
   }
@@ -23,17 +23,17 @@ export class PatientMesPatientsHttpService {
   }
 
   findById(id: number): Observable<Response> {
-    return this.http.get('http://localhost:8080/patient/mesinfos/' + id);
+    return this.http.get('http://localhost:8080/monComptePatient/'+id+'/MesPatients ');
   }
 
   save(patient: Patient) {
     if (patient) {
       if (patient.id) {
-        this.http.put('http://localhost:8080/patient/mesinfos/' + patient.id, patient).subscribe(resp => this.load(),
+        this.http.put('http://localhost:8080/monComptePatient/'+ patient.id +'/MesModifs', patient).subscribe(resp => this.load(),
           err => console.log(err)
         );
       } else {
-        this.http.post('http://localhost:8080/patient/mesinfos', patient).subscribe(resp => this.load(),
+        this.http.post('http://localhost:8080/monComptePatient/'+ patient.id +'/MesPatients/addPatient', patient).subscribe(resp => this.load(),
           err => console.log(err));
       }
 
@@ -41,7 +41,7 @@ export class PatientMesPatientsHttpService {
   }
 
   delete(id: number) {
-    this.http.delete('http://localhost:8080/patient/mesinfos/' + id).subscribe(resp => this.load(),
+    this.http.delete('http://localhost:8080/monComptePatient/MesPatientsDelete/' + id).subscribe(resp => this.load(),
       err => console.log(err));
 
   }
