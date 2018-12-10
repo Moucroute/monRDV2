@@ -14,7 +14,7 @@
         <th>N° de téléphone</th>
       </tr>
 
-      <tr>
+      <tr *ngFor="let rendezvous of listRendezVous">
         <td>{{rendezvous.patient.nom}} {{rendezvous.patient.prenom}}</td>
         <td>{{heureDebut}}</td>
         <td>{{heureFin}}</td>
