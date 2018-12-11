@@ -112,6 +112,10 @@ public class PatientController {
 	}
 	
 	
+	
+
+	
+	
 //	@GetMapping("/inscription")
 //	public String inscription(Model model) {
 //		model.addAttribute("page", "patient");
