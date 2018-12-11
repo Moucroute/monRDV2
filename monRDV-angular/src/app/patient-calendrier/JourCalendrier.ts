@@ -1,9 +1,12 @@
+import {RendezVous} from '../model/rendez-vous';
+
 export class JourCalendrier {
   private _num: number;
   private _annee: number;
   private _mois: number;
   private _libelle: string;
   private _dateComplete: Date;
+  private _rendezVousduJour: Array<RendezVous>;
 
   constructor(num?: number, annee?: number, mois?: number, libelle?: string, dateComplete?: Date) {
     this._num = num;

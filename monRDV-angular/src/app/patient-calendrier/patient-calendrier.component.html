@@ -1,5 +1,5 @@
 <div>saluuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuut</div>
-<div *ngFor="let rdv of listRendezVous(7)">
+<div *ngFor="let rdv of rendezVouss">
 <!--<div *ngIf="heureDebut==jour.dateComplete">-->
 <div>{{rdv.patient.nom}}</div>
 <!--<div>{{plage(rdv)}}</div>-->
@@ -19,7 +19,7 @@
   <div class="col-lg-4 groupeMoisEnCours">
     <button class="btn btn-success" (click)="precMonth()"><span class="glyphicon glyphicon-menu-left"></span>
     </button>
-    <span id="moisEnCours">{{this.libelleMois}} {{this.currentYear}}</span>
+    <span id="moisEnCours">{{libelleMois}} {{currentYear}}</span>
     <button class="btn btn-success" (click)="nextMonth()"><span class="glyphicon glyphicon-menu-right"></span>
     </button>
   </div>
@@ -44,12 +44,15 @@
       <tbody class="ligneCalendrier">
       <tr>
         <td *ngFor="let jour of this.semaine1">
-          <!--<div *ngFor="let rdv of listRendezVous(7)">-->
-            <!--<div *ngIf="heureDebut==jour.dateComplete">-->
-              <!--<div>{{rdv.patient.nom}}</div>-->
-              <!--<div>{{plage(rdv)}}</div>-->
+          <div *ngFor="let rdv of rendezVouss">
+            <div>{{plage(rdv)}}</div>
+            <!--<div>{{rdv.patient.nom}}</div>-->
+            <div *ngIf="compareDates(jour.dateComplete)">
+              <div>{{rdv.patient.prenom}}</div>
             <!--</div>-->
-          <!--</div>-->
+          </div>
+          </div>
+
   {{jour.num}}
         </td>
       </tr>
