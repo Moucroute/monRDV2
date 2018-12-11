@@ -47,7 +47,7 @@ export class PatientCalendrierComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listRendezVous(145);
+    this.listRendezVous(287);
   }
 
   // rendezVouss = this.listRendezVous(7);
@@ -103,7 +103,7 @@ export class PatientCalendrierComponent implements OnInit {
     const mois: Array<JourCalendrier> = new Array<JourCalendrier>();
     let traite: string;
     traite = 'false';
-    const dernierJour = this.NonbreJourMois(this.currentMonth, this.currentYear);
+    const dernierJour = this.NombreJourMois(this.currentMonth, this.currentYear);
     for (let i = 1; i <= dernierJour; i++) {
       const dayDate = new Date(this.currentYear, this.currentMonth, i);
       const currentDay: JourCalendrier = new JourCalendrier();
@@ -181,7 +181,7 @@ export class PatientCalendrierComponent implements OnInit {
   }
 
 
-  NonbreJourMois(mois, annee) {
+  NombreJourMois(mois, annee) {
     let nbreJour = 0;
 
     if (mois <= 6) {
@@ -222,20 +222,9 @@ export class PatientCalendrierComponent implements OnInit {
   rdvParJour() {
 
   }
-
-  // addListRdv(i: number, maSemaine: Array<JourCalendrier>): Array<RendezVous> {
-  //   let rendezVousDuJour: Array<RendezVous>;
-  //   rendezVousDuJour = this.listRendezVous(i);
-  //   for (let l = 0; l < rendezVousDuJour.length; l++) {
-  //
-  //   }
-  //   return rendezVousDuJour;
-  // }
-
-  afficheDetail(rdv: RendezVous) {
-    this.childEvent.emit(rdv);
-  }
-
 }
+
+
+
 
 
