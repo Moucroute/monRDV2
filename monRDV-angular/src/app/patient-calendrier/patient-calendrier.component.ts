@@ -96,7 +96,7 @@ this.listRendezVous(7);
     }
     else {
       console.log(jour.getDay());
-      return this.heureDebut.setHours(0, 0, 0, 0) == jour.setHours(0, 0, 0, 0);
+      return (this.heureDebut.getDate() == jour.getDate() && this.heureDebut.getMonth() == jour.getMonth());
     }
 
 

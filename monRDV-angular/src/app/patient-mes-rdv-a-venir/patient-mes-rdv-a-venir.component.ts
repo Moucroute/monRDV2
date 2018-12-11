@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RendezVous} from "../model/rendez-vous";
 
 @Component({
   selector: 'app-patient-mes-rdv-a-avenir',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientMesRdvAVenirComponent implements OnInit {
 
+  private rendezvous: RendezVous;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  afficherRDV(){
+
   }
 
 }
