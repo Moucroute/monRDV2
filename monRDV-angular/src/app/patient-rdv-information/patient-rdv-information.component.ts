@@ -10,11 +10,6 @@ import {RendezVous} from "../model/rendez-vous";
 })
 export class PatientRdvInformationComponent implements OnInit {
 
-  @Input('utilisateurId')
-  utilisateurId: number;
-
-  @Input()
-  idUtilisateur: number;
 
   listRendezvous: Array<RendezVous>;
 
@@ -22,6 +17,7 @@ export class PatientRdvInformationComponent implements OnInit {
   // private heureFin: Date;
 
   constructor(private route: ActivatedRoute, private patientRdvInformationHttpService: PatientRdvInformationHttpService) {
+
     this.chercherListRendezvous();
     // this.rendezvous = this.patientRdvInformationHttpService.findRendezvousById(1);
     // this.heureDebut = this.patientRdvInformationHttpService.findHeureDebutRendezvous(1);
@@ -32,7 +28,7 @@ export class PatientRdvInformationComponent implements OnInit {
   }
 
   chercherListRendezvous() {
-    this.patientRdvInformationHttpService.findRendezvous(7).subscribe(
+    this.patientRdvInformationHttpService.findRendezvous(334).subscribe(
       resp => {
         this.listRendezvous = resp.json();
       },

@@ -7,10 +7,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class PatientMesRdvPassesComponent implements OnInit {
 
-  private utilisateurId: number;
 
   constructor() {
-    this.utilisateurId = 229;
+
   }
 
   ngOnInit() {
