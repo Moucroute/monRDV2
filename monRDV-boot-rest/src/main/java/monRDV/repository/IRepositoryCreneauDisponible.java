@@ -9,6 +9,10 @@ import org.springframework.data.repository.query.Param;
 import monRDV.model.CreneauDisponible;
 
 public interface IRepositoryCreneauDisponible extends JpaRepository<CreneauDisponible, Long> {
+	
+	
+	@Query("select c from CreneauDisponible c join c.rendezVous where c.id = :id")
+	List<CreneauDisponible> findCreneauByPatient(@Param("id") Long id);
 
 
 	@Query("select c from CreneauDisponible c join c.rendezVous.utilisateur cu where cu.id= :id")

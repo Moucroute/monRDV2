@@ -50,6 +50,7 @@ public class Praticien {
 	@ManyToMany
 	@JoinTable(name = "praticien_specialite", joinColumns = @JoinColumn(name = "praticien_id"), inverseJoinColumns = @JoinColumn(name = "specialite_id"), uniqueConstraints = @UniqueConstraint(columnNames = {
 			"praticien_id", "specialite_id" }))
+	
 	private List<Specialite> specialites = new ArrayList<>();
 
 	@OneToMany(mappedBy = "praticien")

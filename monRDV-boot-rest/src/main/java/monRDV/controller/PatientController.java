@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import monRDV.model.CreneauDisponible;
 import monRDV.model.Patient;
 import monRDV.model.RendezVous;
 import monRDV.model.Views;
@@ -92,10 +94,21 @@ public class PatientController {
 		
 	}
 
+	
+	
+	// Pour l'onglet mesRDVpassés
 	@GetMapping("/Historique/{id}")
 	@JsonView(Views.ViewCreneauDisponibleWithPraticien.class)
 	public List <RendezVous> findByUtilisateur(@PathVariable Long id) {
 		return repoRendezVous.findByUtilisateur(id); 
+	}
+	
+	
+	// Pour l'onglet mesRDVàVenir
+	@GetMapping("/RDVaVenir/{id}")
+	@JsonView(Views.ViewRendezVousWithPatient.class)
+	public RendezVous findRDVaVenirByUtilisateur(@PathVariable Long id) {
+		return repoRendezVous.findAllWithCreneaux(id); 
 	}
 	
 	
