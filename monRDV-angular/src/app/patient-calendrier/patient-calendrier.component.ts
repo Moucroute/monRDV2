@@ -5,14 +5,22 @@ import {PatientCalendrierHttpService} from './patient-calendrier-http.service';
 import {CreneauDisponible} from '../model/creneau-disponible';
 import {Observable} from 'rxjs/Observable';
 import {Response} from '@angular/http';
-import {JourCalendrier} from './JourCalendrier';
+
 import {isBoolean, isNull} from 'util';
+import {JourCalendrier} from './jourCalendrier';
 
 @Component({
   selector: 'app-patient-calendrier',
   templateUrl: './patient-calendrier.component.html',
   styleUrls: ['./patient-calendrier.component.css']
 })
+export class PatientCalendrierComponent implements OnInit {
+  private rendezVouss: Array<RendezVous> = new Array<RendezVous>();
+  private heureDebut: Date;
+  private heureFin: Date;
+
+
+
   arthur: Utilisateur = new Utilisateur();
   rdv1: RendezVous = new RendezVous(1, 0, true, this.arthur);
 
@@ -32,18 +40,12 @@ import {isBoolean, isNull} from 'util';
   semaine6: Array<JourCalendrier> = this.structurerMois(this.moisActuel, 0, 7);
   semaine7: Array<JourCalendrier> = this.structurerMois(this.moisActuel, 0, this.moisActuel.length);
 
-
-  constructor() {
-
-  private rendezVouss: Array<RendezVous>= new Array<RendezVous>();
-  private heureDebut: Date;
-  private heureFin: Date;
   constructor(private patientCalendrierservice: PatientCalendrierHttpService) {
-export class PatientCalendrierComponent implements OnInit {
+
   }
 
-  // ngOnInit() {
-  // }
+  ngOnInit() {
+  }
 
 
   // listRendezVous2(id: number) {
@@ -63,14 +65,15 @@ export class PatientCalendrierComponent implements OnInit {
     return this.rendezVouss;
   }
   plage(rdv: RendezVous) {
-    let b: boolean = true;
-    for (const creneau of rdv.creneaux){
-      if (b = true){
+    let b = true;
+    for (const creneau of rdv.creneaux) {
+      if (b = true) {
         this.heureDebut = creneau.debut;
         b = false;
       }
       this.heureFin = creneau.fin;
-
+    }
+  }
 
   genererMois(): Array<JourCalendrier> {
     const mois: Array<JourCalendrier> = new Array<JourCalendrier>();
