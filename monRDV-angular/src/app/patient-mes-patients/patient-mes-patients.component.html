@@ -15,9 +15,32 @@
             <td>{{patient.prenom}}</td>
             <td>{{patient.dateNaissance | date : 'dd/MM/yyyy' }}</td>
             <td>
+
+              <!--<div class="modal hide fade" id="confirmModal">-->
+                <!--<div class="modal-header">-->
+                  <!--<button type="button" class="btn btn-danger" data-dismiss="modal" aria-hidden="true"><span (click)="delete(patient.id)" class="glyphicon glyphicon-trash"></span></button>-->
+                  <!--<h4>Confirmation de la suppression</h4>-->
+                <!--</div>-->
+                <!--<div class="modal-body">-->
+                  <!--<p>Etes-vous sûr de vouloir supprimer ce patient ?</p>-->
+                <!--</div>-->
+                <!--<div class="modal-footer">-->
+                  <!--<a href="#" class="btn" id="confirmModalNo">Non</a>-->
+                  <!--<a href="#" class="btn btn-primary" id="confirmModalYes">Oui</a>-->
+                <!--</div>-->
+              <!--</div>-->
+
+
+              <!--ancien bouton sans modal-->
               <div class="btn-group btn-group-xs">
                 <button class="btn btn-danger"><span (click)="delete(patient.id)" class="glyphicon glyphicon-trash"></span></button>
               </div>
+
+
+
+
+
+
             </td>
           </tr>
         </table>
