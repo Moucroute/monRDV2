@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {RendezVous} from '../model/rendez-vous';
 import {Utilisateur} from '../model/utilisateur';
 import {PatientCalendrierHttpService} from './patient-calendrier-http.service';
@@ -18,6 +18,10 @@ export class PatientCalendrierComponent implements OnInit {
   private rendezVouss: Array<RendezVous> = new Array<RendezVous>();
   private heureDebut: Date;
   private heureFin: Date;
+
+  @Output()
+  childEvent = new EventEmitter();
+
 
 
 
@@ -64,6 +68,12 @@ this.listRendezVous(7);
   listRendezVous(id: number) {
     this.patientCalendrierservice.findRendezVousById(id).subscribe(resp => {
       this.rendezVouss = resp.json();
+      for(let rdv of this.rendezVouss) {
+        for(let creneau of rdv.creneaux) {
+          creneau.debut = new Date(creneau.debut);
+          creneau.fin = new Date(creneau.fin);
+        }
+      }
     }, err => console.log(err));
 
   }
@@ -78,9 +88,16 @@ this.listRendezVous(7);
       this.heureFin = creneau.fin;
     }
   }
-  compareDates(jour: Date) {
-    return this.heureDebut === jour;
 
+  compareDates(jour: Date) {
+
+    if (jour == null){
+      return false;
+    }
+    else {
+      console.log(jour.getDay());
+      return this.heureDebut.setHours(0, 0, 0, 0) == jour.setHours(0, 0, 0, 0);
+    }
 
 
   }
@@ -216,6 +233,11 @@ this.listRendezVous(7);
   //   }
   //   return rendezVousDuJour;
   // }
+
+  afficheDetail(rdv : RendezVous){
+    this.childEvent.emit(rdv);
+  }
+
 }
 
 

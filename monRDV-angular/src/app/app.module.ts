@@ -10,9 +10,6 @@ import {PatientRdvInformationComponent} from './patient-rdv-information/patient-
 import {PatientMesRdvAVenirComponent} from './patient-mes-rdv-a-venir/patient-mes-rdv-a-venir.component';
 import {PatientMesRdvPassesComponent} from './patient-mes-rdv-passes/patient-mes-rdv-passes.component';
 import {PatientMesInfosComponent} from './patient-mes-infos/patient-mes-infos.component';
-
-
-
 import {RouterModule, Routes} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
@@ -21,6 +18,7 @@ import {NgModule} from '@angular/core';
 import { PatientInscriptionComponent } from './patient-inscription/patient-inscription.component';
 import {PatientInscriptionHttpService} from "./patient-inscription/patient-inscription-http.service";
 import { ConnexionComponent } from './connexion/connexion.component';
+import {ConnexionService} from "./connexion/connexion.service";
 
 
 const routes: Routes = [
@@ -57,7 +55,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [PatientMesPatientsHttpService, PatientRdvInformationHttpService,
-    PatientCalendrierHttpService, PatientDonneesUtilisateurHttpService, PatientInscriptionHttpService],
+    PatientCalendrierHttpService, PatientDonneesUtilisateurHttpService, ConnexionService],
 
   bootstrap: [AppComponent]
 })

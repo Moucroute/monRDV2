@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Patient} from '../model/patient';
 import {PatientMesPatientsHttpService} from './patient-mes-patients-http.service';
+import {isDate} from 'util';
 
 @Component({
   selector: 'app-patient-mes-patients',
@@ -14,7 +15,7 @@ export class PatientMesPatientsComponent implements OnInit {
   show: boolean = false;
   patients: Array<Patient> = new Array<Patient>();
   current: Patient = new Patient();
-
+  date: Date = new Date();
 
   constructor(private patientMesPatientsService: PatientMesPatientsHttpService) {
   }
@@ -36,13 +37,16 @@ export class PatientMesPatientsComponent implements OnInit {
 
 
   saver() {
+    this.current.utilisateur.id = this.utilisateurId;
+    this.current.defaut = false;
+    this.current.dateCreation =  this.date;
+    console.log(this.current);
     this.patientMesPatientsService.save(this.current).subscribe(resp => {
-        this.patientMesPatientsService.findAllById(this.utilisateurId).subscribe(resp3 => {
+       this.patientMesPatientsService.findAllById(this.utilisateurId).subscribe(resp3 => {
             this.patients = resp3.json();
             console.log(this.patients);
             this.show = false;
             this.current = new Patient();
-
           }
         );
       }
