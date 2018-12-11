@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Utilisateur} from '../model/utilisateur'
+import {Utilisateur} from '../model/utilisateur';
 import {Patient} from '../model/patient';
 import {PatientDonneesUtilisateurHttpService} from './patient-donnees-utilisateur-http.service';
+import {RendezVous} from '../model/rendez-vous';
 
 @Component({
   selector: 'app-patient-donnees-utilisateur',
@@ -15,6 +16,7 @@ export class PatientDonneesUtilisateurComponent implements OnInit {
 
   affiche: boolean = false;
   current: Patient = new Patient();
+  patientForm: Patient = null;
 
   constructor(private patientDonneesUtilisateurService: PatientDonneesUtilisateurHttpService) {
   }
@@ -27,11 +29,15 @@ export class PatientDonneesUtilisateurComponent implements OnInit {
   }
 
   edit() {
-    this.affiche = true;
+    this.patientDonneesUtilisateurService.findPatientDefaut(this.utilisateurId).subscribe(resp => {
+      this.patientForm = resp.json(), this.affiche = true;
+      console.log(this.patientForm);
+    }, err => console.log(err));
+
   }
 
   save() {
-    this.patientDonneesUtilisateurService.save(this.current.id, this.current).subscribe(resp => {
+    this.patientDonneesUtilisateurService.save(this.current.id, this.patientForm).subscribe(resp => {
       this.current = resp.json();
       console.log(this.current);
     }, err => console.log(err));
