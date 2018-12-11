@@ -20,9 +20,7 @@ export class PatientCalendrierComponent implements OnInit {
   private heureFin: Date;
 
   @Output()
-  childEvent = new EventEmitter();
-
-
+  childEvent : EventEmitter<RendezVous> = new EventEmitter<RendezVous>();
 
 
   arthur: Utilisateur = new Utilisateur();
@@ -49,7 +47,7 @@ export class PatientCalendrierComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listRendezVous(287);
+    this.listRendezVous(145);
   }
 
   // rendezVouss = this.listRendezVous(7);
@@ -221,9 +219,11 @@ export class PatientCalendrierComponent implements OnInit {
     return nbreJour;
 
   }
-  rdvParJour(){
-
+  
+  afficheDetail(rdv: RendezVous) {
+    this.childEvent.emit(rdv);
   }
+
 }
 
 

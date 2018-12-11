@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RendezVous} from "../model/rendez-vous";
 
 @Component({
   selector: 'app-patient-mes-rdv-a-avenir',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patient-mes-rdv-a-venir.component.css']
 })
 export class PatientMesRdvAVenirComponent implements OnInit {
+
+  rdv : RendezVous;
 
   constructor() { }
 
