@@ -67,7 +67,7 @@ export class PatientCalendrierComponent implements OnInit {
   plage(rdv: RendezVous) {
     let b = true;
     for (const creneau of rdv.creneaux) {
-      if (b = true) {
+      if (b === true) {
         this.heureDebut = creneau.debut;
         b = false;
       }
@@ -96,6 +96,7 @@ export class PatientCalendrierComponent implements OnInit {
           const currentDayVide: JourCalendrier = new JourCalendrier();
           currentDayVide.libelle = '';
           currentDayVide.num = null;
+          currentDay.dateComplete = null;
           mois.push(currentDayVide);
         }
         currentDay.libelle = this.semaine[j];
@@ -105,6 +106,7 @@ export class PatientCalendrierComponent implements OnInit {
         traite = 'true';
       } else {
         currentDay.libelle = this.semaine[j];
+        currentDay.dateComplete = dayDate;
         currentDay.num = i;
         mois.push(currentDay);
         traite = 'true';
@@ -190,6 +192,9 @@ export class PatientCalendrierComponent implements OnInit {
     }
 
     return nbreJour;
+
+  }
+  rdvParJour(){
 
   }
 

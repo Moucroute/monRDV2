@@ -1,24 +1,10 @@
-
 <div>saluuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuut</div>
 <div *ngFor="let rdv of listRendezVous(7)">
-  <div>{{rdv.patient.nom}}</div>
-  <div>{{plage()}}</div>
-  <div *ngIf="heureDebut.getDay()=="
+<!--<div *ngIf="heureDebut==jour.dateComplete">-->
+<div>{{rdv.patient.nom}}</div>
+<!--<div>{{plage(rdv)}}</div>-->
 </div>
-
-
-<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
-<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
-<!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
-
-<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
-<!--<link href="style.css" rel="stylesheet">-->
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>-->
-<!--<script-->
-<!--src="https://code.jquery.com/jquery-3.3.1.min.js"-->
-<!--integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="-->
-<!--crossorigin="anonymous"></script>-->
+<!--</div>-->
 
 
 <div>
@@ -58,11 +44,14 @@
       <tbody class="ligneCalendrier">
       <tr>
         <td *ngFor="let jour of this.semaine1">
-            <div *ngFor="let rdv of listRendezVous(7)">
-            <div>{{rdv.patient.nom}}</div>
-            <div>{{plage()}}</div>
-            <div *ngIf="heureDebut==jour.dateComplete">
-        </div>{{jour.num}}</td>
+          <!--<div *ngFor="let rdv of listRendezVous(7)">-->
+            <!--<div *ngIf="heureDebut==jour.dateComplete">-->
+              <!--<div>{{rdv.patient.nom}}</div>-->
+              <!--<div>{{plage(rdv)}}</div>-->
+            <!--</div>-->
+          <!--</div>-->
+  {{jour.num}}
+        </td>
       </tr>
       <tr>
         <td *ngFor="let jour of this.semaine2">{{jour.num}}</td>
@@ -74,7 +63,15 @@
         <td *ngFor="let jour of this.semaine4">{{jour.num}}</td>
       </tr>
       <tr>
-        <td *ngFor="let jour of this.semaine5">{{jour.num}}</td>
+        <td *ngFor="let jour of this.semaine5">
+          <!--<div *ngFor="let rdv of listRendezVous(7)">-->
+            <!--<div *ngIf="heureDebut==jour.dateComplete">-->
+              <!--<div>{{rdv.patient.nom}}</div>-->
+              <!--<div>{{plage(rdv)}}</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          {{jour.num}}
+        </td>
       </tr>
       <tr>
         <td *ngFor="let jour of this.semaine6">{{jour.num}}</td>

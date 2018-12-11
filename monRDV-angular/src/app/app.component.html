@@ -12,9 +12,14 @@
       <li role="presentation" ><a [routerLink]="['patient/mesinfos']" routerLinkActive="active">Mes Infos</a></li>
 
     </ul>
-
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
+      <li><a [routerLink]="['patient/connexion']" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+    </ul>
 
   </div>
 </nav>
 
 <router-outlet></router-outlet>
+
+<footer class="navbar navbar-default"></footer>

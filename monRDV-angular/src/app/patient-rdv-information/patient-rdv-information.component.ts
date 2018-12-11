@@ -11,56 +11,48 @@ import {RendezVous} from "../model/rendez-vous";
 export class PatientRdvInformationComponent implements OnInit {
 
 
-  listRendezvous: Array<RendezVous>;
-
-  // private heureDebut: Date;
-  // private heureFin: Date;
+  @Input('rendezVous')
+  rendezVous: RendezVous;
+  private heureDebut: Date;
+  private heureFin: Date;
 
   constructor(private route: ActivatedRoute, private patientRdvInformationHttpService: PatientRdvInformationHttpService) {
 
-    this.chercherListRendezvous();
-    // this.rendezvous = this.patientRdvInformationHttpService.findRendezvousById(1);
-    // this.heureDebut = this.patientRdvInformationHttpService.findHeureDebutRendezvous(1);
-    // this.heureFin = this.patientRdvInformationHttpService.findHeureFinRendezvous(1);
   }
 
   ngOnInit() {
-    this.chercherListRendezvous();
+    this.heureDebut = this.findHeureDebutRendezvous(this.rendezVous);
+    this.heureFin = this.findHeureFinRendezvous(this.rendezVous);
   }
 
-  chercherListRendezvous() {
-    this.patientRdvInformationHttpService.findRendezvous(334).subscribe(
-      resp => {
-        this.listRendezvous = resp.json();
-      },
-      err => console.log(err));
+  findHeureDebutRendezvous(rendezVousCurrent : RendezVous): Date {
+
+    let heureDebut = rendezVousCurrent.creneaux[0].debut;
+
+    console.log(rendezVousCurrent.creneaux);
+
+    for(let creneau of rendezVousCurrent.creneaux){
+      console.log(heureDebut);
+      console.log(creneau.debut);
+      if(creneau.debut < heureDebut){
+
+        heureDebut = creneau.debut;
+      }
+    }
+    return heureDebut;
   }
 
-  // findHeureDebutRendezvous(id: number): Date {
-  //
-  // let rendezvousTrouve = this.findRendezvousById(id);
-  // let heureDebut = rendezvousTrouve.creneaux[0].debut;
-  //
-  // for(let creneau of rendezvousTrouve.creneaux){
-  //   if(creneau.debut < heureDebut){
-  //     heureDebut = creneau.debut;
-  //   }
-  // }
-  // return heureDebut;
-  // }
-  //
-  // findHeureFinRendezvous(id: number): Date {
-  //
-  //   let rendezvousTrouve = this.findRendezvousById(id);
-  //   let heureFin = rendezvousTrouve.creneaux[0].fin;
-  //
-  //   for(let creneau of rendezvousTrouve.creneaux){
-  //     if(creneau.debut > heureFin){
-  //       heureFin = creneau.debut;
-  //     }
-  //   }
-  //   return heureFin;
-  // }
+  findHeureFinRendezvous(rendezVousCurrent : RendezVous): Date {
+
+    let heureFin = rendezVousCurrent.creneaux[0].fin;
+
+    for(let creneau of rendezVousCurrent.creneaux){
+      if(creneau.fin > heureFin){
+        heureFin = creneau.fin;
+      }
+    }
+    return heureFin;
+  }
 
 
 }

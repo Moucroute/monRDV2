@@ -40,17 +40,17 @@ public class RendezVous {
 	// TO DO view
 	@ManyToOne
 	@JoinTable(name = "patient_rendezvous")
-	@JsonView(Views.ViewPatient.class)
+	@JsonView({Views.ViewPatient.class,Views.ViewRendezVousWithPatient.class})
 	private Patient patient;
 
 	@ManyToOne
 	@JoinColumn(name = "modalite_id")
-	@JsonView(Views.ViewUtilisateur.class)
+	@JsonView({Views.ViewUtilisateur.class,Views.ViewRendezVousModalite.class})
 	private Modalite modalite;
 
 	
 	@OneToMany(mappedBy = "rendezVous")
-	@JsonView(Views.ViewUtilisateurWithRendezVous.class)
+	@JsonView({Views.ViewUtilisateurWithRendezVous.class,Views.ViewCreneau.class})
 	private List<CreneauDisponible> creneaux = new ArrayList<CreneauDisponible>();
 
 	public RendezVous() {
