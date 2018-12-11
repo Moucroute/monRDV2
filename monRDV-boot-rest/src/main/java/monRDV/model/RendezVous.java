@@ -50,6 +50,7 @@ public class RendezVous {
 
 	
 	@OneToMany(mappedBy = "rendezVous")
+	@JsonView(Views.ViewUtilisateurWithRendezVous.class)
 	private List<CreneauDisponible> creneaux = new ArrayList<CreneauDisponible>();
 
 	public RendezVous() {

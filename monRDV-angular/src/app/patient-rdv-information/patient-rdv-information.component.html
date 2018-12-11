@@ -6,26 +6,23 @@
       <tr>
         <th>Patient</th>
         <th>Date de début</th>
-        <th>Date de début</th>
+        <th>Date de fin</th>
         <th>Docteur</th>
         <th>Spécialité</th>
         <th>Adresse</th>
         <th>Carte Vitale</th>
         <th>N° de téléphone</th>
-        <th></th>
       </tr>
 
-      <tr *ngFor="let salle of list()">
-        <td>{{salle.nom}}</td>
-        <td>{{salle.adresse.rue}}</td>
-        <td>{{salle.adresse.codePostal}}</td>
-        <td>{{salle.adresse.ville}}</td>
-        <td>
-          <div class="btn-group btn-group-xs">
-            <button class="btn btn-info" (click)="editer(salle.id)"><span class="glyphicon glyphicon-pencil"></span></button>
-            <button class="btn btn-danger" (click)="supprimer(salle.id)"><span class="glyphicon glyphicon-trash"></span></button>
-          </div>
-        </td>
+      <tr *ngFor="let rendezvous of listRendezVous">
+        <td>{{rendezvous.patient.nom}} {{rendezvous.patient.prenom}}</td>
+        <td>{{heureDebut}}</td>
+        <td>{{heureFin}}</td>
+        <td>{{rendezvous.creneaux[0].praticien.nom}} {{rendezvous.creneaux[0].praticien.prenom}}</td>
+        <th>{{rendezvous.modalite.motif.specialite.libelle}}</th>
+        <td>{{rendezvous.creneaux[0].lieu.adresse.rue}}, {{rendezvous.creneaux[0].lieu.adresse.codePostal}}, {{rendezvous.creneaux[0].lieu.adresse.ville}} </td>
+        <td>{{rendezvous.creneaux[0].praticien.prendCarteVitale}}</td>
+        <td>{{rendezvous.creneaux[0].praticien.utilisateur.telephone}}</td>
       </tr>
     </table>
 

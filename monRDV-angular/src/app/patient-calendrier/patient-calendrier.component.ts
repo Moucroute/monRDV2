@@ -12,8 +12,9 @@ import {Response} from '@angular/http';
   styleUrls: ['./patient-calendrier.component.css']
 })
 export class PatientCalendrierComponent {
-  private user_creneau = new Utilisateur();
-
+  private rendezVouss: Array<RendezVous>= new Array<RendezVous>();
+  private heureDebut: Date;
+  private heureFin: Date;
   constructor(private patientCalendrierservice: PatientCalendrierHttpService) {
     // const arthur: Utilisateur = new Utilisateur();
     // const rdv1: RendezVous = new RendezVous(1, 0, true, arthur);
@@ -25,15 +26,33 @@ export class PatientCalendrierComponent {
   // }
 
 
-  listRendezVous(id: number) {
-    this.patientCalendrierservice.findUtilisateurById(id).subscribe(resp => {
-        this.user_creneau = resp.json();
-        for (let i: number; i < this.user_creneau.rendezVous.length; i++) {
-          this.patientCalendrierservice.findCreneauByRendezVous(this.user_creneau.rendezVous[i].id).subscribe(respo => this.user_creneau.rendezVous[i].creneaux = respo.json(), erre => console.log(erre));
+  // listRendezVous2(id: number) {
+  //   this.patientCalendrierservice.findRendezVousById(id).subscribe(resp => {
+  //       this.rendezVouss = resp.json();
+  //       for (let i: number; i < this.rendezVouss.rendezVous.length; i++) {
+  //         this.patientCalendrierservice.findCreneauByRendezVous(this.rendezVouss.rendezVous[i].id).subscribe(respo => {this.rendezVouss.rendezVous[i].creneaux = respo.json()}, erre => console.log(erre));
+  //
+  //       }
+  //     },
+  //     err => console.log(err));
+  // }
 
-        }
-      },
-      err => console.log(err));
+  listRendezVous(id: number): Array<RendezVous> {
+    this.patientCalendrierservice.findRendezVousById(id).subscribe(resp => {
+      this.rendezVouss = resp.json(); }, err => console.log(err));
+    return this.rendezVouss;
+  }
+  plage(rdv: RendezVous) {
+    let b: boolean = true;
+    for (const creneau of rdv.creneaux){
+      if (b = true){
+        this.heureDebut = creneau.debut;
+        b = false;
+      }
+      this.heureFin = creneau.fin;
+
+
+    }
   }
 }
 
