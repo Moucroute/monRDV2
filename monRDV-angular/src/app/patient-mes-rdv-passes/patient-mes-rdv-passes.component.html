@@ -1,3 +1,6 @@
-<p>
-  <app-patient-rdv-information></app-patient-rdv-information>
+
+
+<p *ngFor="let rendezvous of listRendezvous">
+    <app-patient-rdv-information [rendezVous]=rendezvous></app-patient-rdv-information>
 </p>
+
