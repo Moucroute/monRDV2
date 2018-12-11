@@ -44,7 +44,7 @@ const routes: Routes = [
     PatientMesRdvAVenirComponent,
     PatientMesRdvPassesComponent,
     PatientMesInfosComponent,
-    PatientInscriptionComponent
+    PatientInscriptionComponent,
     PatientMesInfosComponent,
     ConnexionComponent
   ],
@@ -54,7 +54,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [PatientMesPatientsHttpService, PatientRdvInformationHttpService,
+  providers: [PatientMesPatientsHttpService, PatientRdvInformationHttpService, PatientInscriptionHttpService,
     PatientCalendrierHttpService, PatientDonneesUtilisateurHttpService, ConnexionService],
 
   bootstrap: [AppComponent]
