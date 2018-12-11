@@ -20,9 +20,7 @@ export class PatientCalendrierComponent implements OnInit {
   private heureFin: Date;
 
   @Output()
-  childEvent = new EventEmitter();
-
-
+  childEvent : EventEmitter<RendezVous> = new EventEmitter<RendezVous>();
 
 
   arthur: Utilisateur = new Utilisateur();
@@ -49,7 +47,7 @@ export class PatientCalendrierComponent implements OnInit {
   }
 
   ngOnInit() {
-this.listRendezVous(7);
+    this.listRendezVous(145);
   }
 
   // rendezVouss = this.listRendezVous(7);
@@ -68,8 +66,8 @@ this.listRendezVous(7);
   listRendezVous(id: number) {
     this.patientCalendrierservice.findRendezVousById(id).subscribe(resp => {
       this.rendezVouss = resp.json();
-      for(let rdv of this.rendezVouss) {
-        for(let creneau of rdv.creneaux) {
+      for (let rdv of this.rendezVouss) {
+        for (let creneau of rdv.creneaux) {
           creneau.debut = new Date(creneau.debut);
           creneau.fin = new Date(creneau.fin);
         }
@@ -91,10 +89,9 @@ this.listRendezVous(7);
 
   compareDates(jour: Date) {
 
-    if (jour == null){
+    if (jour == null) {
       return false;
-    }
-    else {
+    } else {
       console.log(jour.getDay());
       return this.heureDebut.setHours(0, 0, 0, 0) == jour.setHours(0, 0, 0, 0);
     }
@@ -221,7 +218,8 @@ this.listRendezVous(7);
     return nbreJour;
 
   }
-  rdvParJour(){
+
+  rdvParJour() {
 
   }
 
@@ -234,7 +232,7 @@ this.listRendezVous(7);
   //   return rendezVousDuJour;
   // }
 
-  afficheDetail(rdv : RendezVous){
+  afficheDetail(rdv: RendezVous) {
     this.childEvent.emit(rdv);
   }
 

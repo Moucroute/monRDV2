@@ -20,7 +20,7 @@ export class PatientMesRdvPassesComponent implements OnInit {
 
   ngOnInit() {
 
-    this.patientRdvInformationHttpService.findRendezvous(334).subscribe(
+    this.patientRdvInformationHttpService.findRendezvous(145).subscribe(
       resp => {
         this.listRendezvous = resp.json();
 
