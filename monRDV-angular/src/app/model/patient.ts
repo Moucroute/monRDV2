@@ -9,11 +9,12 @@ export class Patient {
   prenom: string;
   dateNaissance: Date;
   dateCreation: Date;
-  utilisateur: Utilisateur = new Utilisateur();
-  rendezVous: Array<RendezVous> = new Array<RendezVous>();
+  utilisateur: Utilisateur;
+  rendezVous: Array<RendezVous>;
 
 
-  constructor(id?: number, version?: number, defaut?: boolean, nom?: string, prenom?: string, dateNaissance?: Date, dateCreation?: Date, utilisateur?: Utilisateur, rendezVous?: Array<RendezVous>) {
+  constructor(id?: number, version?: number, defaut?: boolean, nom?: string, prenom?: string, dateNaissance?: Date,
+              dateCreation?: Date, utilisateur?: Utilisateur, rendezVous?: Array<RendezVous>) {
     this.id = id;
     this.version = version;
     this.defaut = defaut;
@@ -21,8 +22,12 @@ export class Patient {
     this.prenom = prenom;
     this.dateNaissance = dateNaissance;
     this.dateCreation = dateCreation;
-    this.utilisateur = utilisateur;
-    this.rendezVous = rendezVous;
+    this.utilisateur = utilisateur ? utilisateur : new Utilisateur();
+    if (rendezVous) {
+      this.rendezVous = rendezVous;
+    } else {
+      this.rendezVous = new Array<RendezVous>();
+    }
   }
 
 }

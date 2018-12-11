@@ -38,13 +38,13 @@
           <input [(ngModel)]="current.prenom"  type="text" class="form-control" id="prenom">
         </div>
         <div class="form-group">
-          <label for="coddateNaissance">Date de naissance:</label>
-          <input [(ngModel)]="current.dateNaissance" type="text" class="form-control" id="coddateNaissance">
+          <label for="dateNaissance">Date de naissance:</label>
+          <input [(ngModel)]="current.dateNaissance" type="date" class="form-control" id="dateNaissance">
         </div>
       </div>
       <div class="panel-footer">
         <div class="btn-group">
-          <button class="btn btn-success"><span (click)="saver(current.id)" class="glyphicon glyphicon-ok"></span></button>
+          <button class="btn btn-success"><span (click)="saver()" class="glyphicon glyphicon-ok"></span></button>
           <button class="btn btn-warning"><span (click)="cancel()" class="glyphicon glyphicon-remove"></span></button>
         </div>
       </div>
