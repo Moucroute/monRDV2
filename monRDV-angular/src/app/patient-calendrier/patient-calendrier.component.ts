@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {RendezVous} from '../model/rendez-vous';
 import {Utilisateur} from '../model/utilisateur';
 import {PatientCalendrierHttpService} from './patient-calendrier-http.service';
