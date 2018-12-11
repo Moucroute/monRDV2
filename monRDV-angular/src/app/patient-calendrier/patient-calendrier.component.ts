@@ -19,6 +19,10 @@ export class PatientCalendrierComponent implements OnInit {
   private heureDebut: Date;
   private heureFin: Date;
 
+  @Output()
+  childEvent = new EventEmitter();
+
+
 
 
   arthur: Utilisateur = new Utilisateur();
@@ -229,6 +233,11 @@ this.listRendezVous(7);
   //   }
   //   return rendezVousDuJour;
   // }
+
+  afficheDetail(rdv : RendezVous){
+    this.childEvent.emit(rdv);
+  }
+
 }
 
 
