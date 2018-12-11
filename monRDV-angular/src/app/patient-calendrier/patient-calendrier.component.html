@@ -1,4 +1,10 @@
 
+<div>saluuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuut</div>
+<div *ngFor="let rdv of listRendezVous(7)">
+  <div>{{rdv.patient.nom}}</div>
+  <div>{{plage()}}</div>
+</div>
+
 
 <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
 <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
@@ -14,33 +20,63 @@
 <!--crossorigin="anonymous"></script>-->
 
 
-<div class="container theme-showcase">
+<div>
   <h1>Mon planning</h1>
   <div id="holder" class="row"></div>
 </div>
 
-<div>Mois</div>
 
-<table class="table table-striped table-condensed table-tight-vert">
-  <thead>
-  <tr>
-    <td>Lundi</td>
-    <td>Mardi</td>
-    <td>Mercredi</td>
-    <td>Jeudi</td>
-    <td>Vendredi</td>
-    <td>Samedi</td>
-    <td>Dimanche</td>
-  </tr>
-  </thead>
-  <tbody>
-    <tr></tr>
-    <tr></tr>
-    <tr></tr>
-    <tr></tr>
-    <tr></tr>
-    <tr></tr>
-  </tbody>
-</table>
+<div class="row choixMois">
 
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4 groupeMoisEnCours">
+    <button class="btn btn-success" (click)="precMonth()"><span class="glyphicon glyphicon-menu-left"></span>
+    </button>
+    <span id="moisEnCours">{{this.libelleMois}} {{this.currentYear}}</span>
+    <button class="btn btn-success" (click)="nextMonth()"><span class="glyphicon glyphicon-menu-right"></span>
+    </button>
+  </div>
+  <div class="col-lg-4"></div>
+</div>
+
+<div class="row">
+  <div class="col-lg-1"></div>
+  <div class="col-lg-10">
+    <table class="table table-striped table-condensed table-tight-vert table-bordered">
+      <thead>
+      <tr>
+        <td>Lundi</td>
+        <td>Mardi</td>
+        <td>Mercredi</td>
+        <td>Jeudi</td>
+        <td>Vendredi</td>
+        <td>Samedi</td>
+        <td>Dimanche</td>
+      </tr>
+      </thead>
+      <tbody class="ligneCalendrier">
+      <tr>
+        <td *ngFor="let jour of this.semaine1">{{jour.num}}</td>
+      </tr>
+      <tr>
+        <td *ngFor="let jour of this.semaine2">{{jour.num}}</td>
+      </tr>
+      <tr>
+        <td *ngFor="let jour of this.semaine3">{{jour.num}}</td>
+      </tr>
+      <tr>
+        <td *ngFor="let jour of this.semaine4">{{jour.num}}</td>
+      </tr>
+      <tr>
+        <td *ngFor="let jour of this.semaine5">{{jour.num}}</td>
+      </tr>
+      <tr>
+        <td *ngFor="let jour of this.semaine6">{{jour.num}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+
+    <div class="col-lg-1"></div>
+  </div>
 
