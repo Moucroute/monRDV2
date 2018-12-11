@@ -23,8 +23,6 @@ export class PatientCalendrierComponent implements OnInit {
   childEvent = new EventEmitter();
 
 
-
-
   arthur: Utilisateur = new Utilisateur();
 
   dateJour: Date = new Date();
@@ -49,7 +47,7 @@ export class PatientCalendrierComponent implements OnInit {
   }
 
   ngOnInit() {
-this.listRendezVous(7);
+    this.listRendezVous(287);
   }
 
   // rendezVouss = this.listRendezVous(7);
@@ -68,8 +66,8 @@ this.listRendezVous(7);
   listRendezVous(id: number) {
     this.patientCalendrierservice.findRendezVousById(id).subscribe(resp => {
       this.rendezVouss = resp.json();
-      for(let rdv of this.rendezVouss) {
-        for(let creneau of rdv.creneaux) {
+      for (let rdv of this.rendezVouss) {
+        for (let creneau of rdv.creneaux) {
           creneau.debut = new Date(creneau.debut);
           creneau.fin = new Date(creneau.fin);
         }
@@ -91,10 +89,9 @@ this.listRendezVous(7);
 
   compareDates(jour: Date) {
 
-    if (jour == null){
+    if (jour == null) {
       return false;
-    }
-    else {
+    } else {
       console.log(jour.getDay());
       return (this.heureDebut.getDate() == jour.getDate() && this.heureDebut.getMonth() == jour.getMonth());
     }
@@ -106,7 +103,7 @@ this.listRendezVous(7);
     const mois: Array<JourCalendrier> = new Array<JourCalendrier>();
     let traite: string;
     traite = 'false';
-    const dernierJour = this.NonbreJourMois(this.currentMonth, this.currentYear);
+    const dernierJour = this.NombreJourMois(this.currentMonth, this.currentYear);
     for (let i = 1; i <= dernierJour; i++) {
       const dayDate = new Date(this.currentYear, this.currentMonth, i);
       const currentDay: JourCalendrier = new JourCalendrier();
@@ -184,7 +181,7 @@ this.listRendezVous(7);
   }
 
 
-  NonbreJourMois(mois, annee) {
+  NombreJourMois(mois, annee) {
     let nbreJour = 0;
 
     if (mois <= 6) {
@@ -221,23 +218,10 @@ this.listRendezVous(7);
     return nbreJour;
 
   }
-  rdvParJour(){
-
-  }
-
-  // addListRdv(i: number, maSemaine: Array<JourCalendrier>): Array<RendezVous> {
-  //   let rendezVousDuJour: Array<RendezVous>;
-  //   rendezVousDuJour = this.listRendezVous(i);
-  //   for (let l = 0; l < rendezVousDuJour.length; l++) {
-  //
-  //   }
-  //   return rendezVousDuJour;
-  // }
-
-  afficheDetail(rdv : RendezVous){
-    this.childEvent.emit(rdv);
-  }
 
 }
+
+
+
 
 
