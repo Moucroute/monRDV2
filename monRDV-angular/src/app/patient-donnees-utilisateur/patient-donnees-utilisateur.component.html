@@ -15,27 +15,27 @@
 
     <div class="form-group">
       <label for="nom">Prénom:</label>
-      <input type="text" class="form-control" id="nom" [(ngModel)]="current.nom">
+      <input type="text" class="form-control" id="nom" [(ngModel)]="patientForm.nom">
     </div>
 
   <div class="form-group">
     <label for="prenom">Prénom:</label>
-    <input type="text" class="form-control" id="prenom" [(ngModel)]="current.prenom">
+    <input type="text" class="form-control" id="prenom" [(ngModel)]="patientForm.prenom">
   </div>
 
   <div class="form-group">
     <label for="email">Name:</label>
-    <input type="text" class="form-control" id="email" [(ngModel)]="current.utilisateur.email">
+    <input type="text" class="form-control" id="email" [(ngModel)]="patientForm.utilisateur.email">
   </div>
 
   <div class="form-group">
     <label for="pwd">Password:</label>
-    <input type="password" class="form-control" id="pwd" [(ngModel)]="current.utilisateur.motDePasse">
+    <input type="text" class="form-control" id="pwd" [(ngModel)]="patientForm.utilisateur.motDePasse">
   </div>
 
   <div class="form-group">
     <label for="tel">Téléphone:</label>
-    <input type="text" class="form-control" id="tel" [(ngModel)]="current.utilisateur.telephone">
+    <input type="text" class="form-control" id="tel" [(ngModel)]="patientForm.utilisateur.telephone">
   </div>
 
     <button class="btn btn-info" (click)="save()">Valider</button>

@@ -20,6 +20,7 @@ import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 
 
@@ -46,12 +47,15 @@ public class Patient {
 	@JsonView(Views.ViewCommon.class)
 	private String prenom;
 
+	
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "date_naissance")
 	@JsonView(Views.ViewCommon.class)
 	private Date dateNaissance;
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "date_creation")
 	@JsonView(Views.ViewCommon.class)
 	private Date dateCreation;
