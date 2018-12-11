@@ -32,7 +32,7 @@ public class UtilisateurController {
 
 	
 
-	@GetMapping("/connexion/{email}/{motDePasse}")
+	@GetMapping("/connexion/{email}:{motDePasse}")
 	@JsonView(Views.ViewUtilisateur.class)
 	public  Utilisateur connexion(@PathVariable("email") String email,@PathVariable("motDePasse") String motDePasse){
 		

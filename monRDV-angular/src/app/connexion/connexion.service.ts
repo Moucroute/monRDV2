@@ -15,7 +15,7 @@ export class ConnexionService {
   //Trouver utilisateur par email
 
   findByEmailMdp(email: string, motDePasse: string): Observable<Response> {
-    return this.http.get('http://localhost:8080/utilisateur/connexion/' + email + '/' +  motDePasse);
+    return this.http.get('http://localhost:8080/utilisateur/connexion/' + email + ':' +  motDePasse);
   }
 
   //Apres authentification de l'utilisateur, le renvoyer vers son compte
