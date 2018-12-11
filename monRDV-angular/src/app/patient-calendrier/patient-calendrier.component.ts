@@ -84,6 +84,7 @@ this.listRendezVous(7);
       this.heureFin = creneau.fin;
     }
   }
+
   compareDates(jour: Date) {
 
     if (jour == null){
