@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Utilisateur} from '../model/utilisateur'
 import {Patient} from '../model/patient';
 import {PatientDonneesUtilisateurHttpService} from './patient-donnees-utilisateur-http.service';
@@ -10,19 +10,36 @@ import {PatientDonneesUtilisateurHttpService} from './patient-donnees-utilisateu
 })
 export class PatientDonneesUtilisateurComponent implements OnInit {
 
+  @Input()
+  utilisateurId: number;
   affiche: boolean = false;
-  current: Utilisateur;
-  currentPatient: Patient;
+  current: Utilisateur = new Utilisateur();
+  currentPatient: Patient = new Patient();
 
-  constructor(private patientDonneesUtilisateurService: PatientDonneesUtilisateurHttpService) { }
-
-  ngOnInit() {
+  constructor(private patientDonneesUtilisateurService: PatientDonneesUtilisateurHttpService) {
   }
 
-  edit(id : number){
+  ngOnInit() {
+    this.patientDonneesUtilisateurService.findById(this.utilisateurId).subscribe(resp => {
+      this.current = resp.json();
+      console.log(this.current);
+    }, err => console.log(err));
+    // this.patientDonneesUtilisateurService.findPatientDefaut(this.utilisateurId).subscribe(resp => {
+    //   this.currentPatient = resp.json();
+    //   console.log(this.currentPatient);
+    // }, err => console.log(err));
+  }
+
+  edit() {
     this.affiche = true;
-    this.patientDonneesUtilisateurService.findById(id).subscribe(resp => this.current = resp.json(), err => console.log(err));
-    this.patientDonneesUtilisateurService.findPatientDefaut(id).subscribe(resp => this.currentPatient = resp.json(), err => console.log(err));
+    // this.patientDonneesUtilisateurService.findById(this.utilisateurId).subscribe(resp => {
+    //   this.current = resp.json();
+    //   console.log(this.current);
+    // }, err => console.log(err));
+    // this.patientDonneesUtilisateurService.findPatientDefaut(this.utilisateurId).subscribe(resp => {
+    //   this.currentPatient = resp.json();
+    //   console.log(this.currentPatient);
+    // }, err => console.log(err));
   }
 
   save() {

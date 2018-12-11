@@ -10,10 +10,15 @@ import {PatientDonneesUtilisateurHttpService} from './patient-donnees-utilisateu
 import {PatientRdvInformationComponent} from './patient-rdv-information/patient-rdv-information.component';
 import {PatientMesRdvAVenirComponent} from './patient-mes-rdv-a-venir/patient-mes-rdv-a-venir.component';
 
+<<<<<<< Updated upstream
 import { PatientMesRdvPassesComponent } from './patient-mes-rdv-passes/patient-mes-rdv-passes.component';
 import { PatientMesInfosComponent } from './patient-mes-infos/patient-mes-infos.component';
 
 
+=======
+import {PatientMesRdvPassesComponent} from './patient-mes-rdv-passes/patient-mes-rdv-passes.component';
+import {PatientMesInfosComponent} from './patient-mes-infos/patient-mes-infos.component';
+>>>>>>> Stashed changes
 
 import {RouterModule, Routes} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
@@ -26,8 +31,8 @@ const routes: Routes = [
 
   {path: 'patient/mesrdvavenir', component: PatientMesRdvAVenirComponent},
   {path: 'patient/mesrdvpasses', component: PatientRdvInformationComponent},
-  {path: 'patient/mesinfos', component: PatientMesInfosComponent},
-  {path: '', redirectTo: 'patient/mesrdvavenir', pathMatch: 'full'},
+  {path: 'patient/mesinfos/:id', component: PatientMesInfosComponent},
+  {path: '', redirectTo: 'patient/mesinfos/353', pathMatch: 'full'},
 
 ]
 

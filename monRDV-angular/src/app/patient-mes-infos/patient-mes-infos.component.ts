@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-patient-mes-infos',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientMesInfosComponent implements OnInit {
 
-  constructor() { }
+  utilisateurId: number;
+
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    this.route.params.subscribe(params => this.utilisateurId = params['id']);
   }
 
 }
