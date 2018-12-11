@@ -1,8 +1,8 @@
 <div>saluuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuut</div>
 <div *ngFor="let rdv of rendezVouss">
-<!--<div *ngIf="heureDebut==jour.dateComplete">-->
-<div>{{rdv.patient.nom}}</div>
-<!--<div>{{plage(rdv)}}</div>-->
+  <!--<div *ngIf="heureDebut==jour.dateComplete">-->
+  <div>{{rdv.patient.nom}}</div>
+  <!--<div>{{plage(rdv)}}</div>-->
 </div>
 <!--</div>-->
 
@@ -49,30 +49,59 @@
             <!--<div>{{rdv.patient.nom}}</div>-->
             <div *ngIf="compareDates(jour.dateComplete)">
               <button class="btn btn-success">{{heureDebut | date :'HH:mm'}}<br>{{rdv.patient.prenom}}</button>
-            <!--</div>-->
-          </div>
+              <!--</div>-->
+            </div>
           </div>
 
-  {{jour.num}}
+          {{jour.num}}
         </td>
       </tr>
       <tr>
-        <td *ngFor="let jour of this.semaine2">{{jour.num}}</td>
+        <td *ngFor="let jour of this.semaine2">
+          <div *ngFor="let rdv of rendezVouss">
+            <div>{{plage(rdv)}}</div>
+            <!--<div>{{rdv.patient.nom}}</div>-->
+            <div *ngIf="compareDates(jour.dateComplete)">
+              <button class="btn btn-success">{{heureDebut | date :'HH:mm'}}<br>{{rdv.patient.prenom}}</button>
+              <!--</div>-->
+            </div>
+          </div>
+          {{jour.num}}</td>
       </tr>
       <tr>
-        <td *ngFor="let jour of this.semaine3">{{jour.num}}</td>
+        <td *ngFor="let jour of this.semaine3">
+          <div *ngFor="let rdv of rendezVouss">
+            <div>{{plage(rdv)}}</div>
+            <!--<div>{{rdv.patient.nom}}</div>-->
+            <div *ngIf="compareDates(jour.dateComplete)">
+              <button class="btn btn-success">{{heureDebut | date :'HH:mm'}}<br>{{rdv.patient.prenom}}</button>
+              <!--</div>-->
+            </div>
+          </div>
+          {{jour.num}}</td>
       </tr>
       <tr>
-        <td *ngFor="let jour of this.semaine4">{{jour.num}}</td>
+        <td *ngFor="let jour of this.semaine4">
+          <div *ngFor="let rdv of rendezVouss">
+            <div>{{plage(rdv)}}</div>
+            <!--<div>{{rdv.patient.nom}}</div>-->
+            <div *ngIf="compareDates(jour.dateComplete)">
+              <button class="btn btn-success">{{heureDebut | date :'HH:mm'}}<br>{{rdv.patient.prenom}}</button>
+              <!--</div>-->
+            </div>
+          </div>
+          {{jour.num}}</td>
       </tr>
       <tr>
         <td *ngFor="let jour of this.semaine5">
-          <!--<div *ngFor="let rdv of listRendezVous(7)">-->
-            <!--<div *ngIf="heureDebut==jour.dateComplete">-->
-              <!--<div>{{rdv.patient.nom}}</div>-->
-              <!--<div>{{plage(rdv)}}</div>-->
-            <!--</div>-->
-          <!--</div>-->
+          <div *ngFor="let rdv of rendezVouss">
+            <div>{{plage(rdv)}}</div>
+            <!--<div>{{rdv.patient.nom}}</div>-->
+            <div *ngIf="compareDates(jour.dateComplete)">
+              <button class="btn btn-success">{{heureDebut | date :'HH:mm'}}<br>{{rdv.patient.prenom}}</button>
+              <!--</div>-->
+            </div>
+          </div>
           {{jour.num}}
         </td>
       </tr>
