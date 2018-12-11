@@ -12,6 +12,7 @@ import {PatientMesRdvPassesComponent} from './patient-mes-rdv-passes/patient-mes
 import {PatientMesInfosComponent} from './patient-mes-infos/patient-mes-infos.component';
 
 
+
 import {RouterModule, Routes} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';

@@ -13,6 +13,8 @@ export class PatientMesPatientsComponent implements OnInit {
   utilisateurId: number;
   show: boolean = false;
   patients: Array<Patient> = new Array<Patient>();
+  current: Patient = new Patient();
+
 
   constructor(private patientMesPatientsService: PatientMesPatientsHttpService) {
   }
@@ -25,31 +27,50 @@ export class PatientMesPatientsComponent implements OnInit {
     );
   }
 
-// list(id: number): Array<Patient> {
-//   return this.patientMesPatientsService.findAllById(id);
-// }
 
-//
-// add() {
-//   this.show = true;
-//   this.current = new Patient();
-//
-// }
-//
-// saver() {
-//   this.patientMesPatientsService.save(this.current);
-//   this.show = false;
-//   this.current = new Patient();
-// }
-//
-// cancel() {
-//   this.show = false;
-//   this.current = new Patient();
-// }
-//
-// delete(id: number) {
-//   this.patientMesPatientsService.delete(id);
-// }
+  add() {
+    this.show = true;
+    this.current = new Patient();
+
+  }
+
+
+  saver() {
+    this.patientMesPatientsService.save(this.current).subscribe(resp => {
+        this.patientMesPatientsService.findAllById(this.utilisateurId).subscribe(resp3 => {
+            this.patients = resp3.json();
+            console.log(this.patients);
+            this.show = false;
+            this.current = new Patient();
+
+          }
+        );
+      }
+    );
+
+
+  }
+
+  cancel() {
+    this.show = false;
+    this.current = new Patient();
+  }
+
+  delete(id: number) {
+    this.patientMesPatientsService.delete(id).subscribe(resp => {
+        this.patientMesPatientsService.findAllById(this.utilisateurId).subscribe(resp2 => {
+            this.patients = resp2.json();
+            console.log(this.patients);
+          }
+        );
+      }
+    );
+  }
 
 
 }
+
+
+
+
+
