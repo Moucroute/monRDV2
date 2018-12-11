@@ -53,35 +53,4 @@ export class PatientRdvInformationHttpService {
   }
 
 
-  // findRendezvousById(id: number): RendezVous{
-  //   return this.rendezvous
-  // }
-
-
-  // findHeureDebutRendezvous(id: number): Date {
-  //
-  // let rendezvousTrouve = this.findRendezvousById(id);
-  // let heureDebut = rendezvousTrouve.creneaux[0].debut;
-  //
-  // for(let creneau of rendezvousTrouve.creneaux){
-  //   if(creneau.debut < heureDebut){
-  //     heureDebut = creneau.debut;
-  //   }
-  // }
-  // return heureDebut;
-  // }
-  //
-  // findHeureFinRendezvous(id: number): Date {
-  //
-  //   let rendezvousTrouve = this.findRendezvousById(id);
-  //   let heureFin = rendezvousTrouve.creneaux[0].fin;
-  //
-  //   for(let creneau of rendezvousTrouve.creneaux){
-  //     if(creneau.debut > heureFin){
-  //       heureFin = creneau.debut;
-  //     }
-  //   }
-  //   return heureFin;
-  // }
-
 }
