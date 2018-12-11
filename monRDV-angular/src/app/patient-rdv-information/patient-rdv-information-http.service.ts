@@ -49,7 +49,7 @@ export class PatientRdvInformationHttpService {
 
 
   findRendezvous(id: number): Observable<Response> {
-    return this.http.get('http://localhost:8080/Historique/' + id);
+    return this.http.get('http://localhost:8080/patient/Historique/' + id);
   }
 
 
