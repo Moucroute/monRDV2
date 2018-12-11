@@ -5,7 +5,7 @@
 
 }
 
-td{
+td {
   width: 10%;
 }
 
@@ -19,13 +19,29 @@ td{
 
 }
 
-.ligneCalendrier tr td{
-  padding-top: 5%;
-  margin-bottom: 5%;
+.ligneCalendrier tr td {
+  padding-top: 1%;
+  margin-bottom: 2%;
   text-align: right;
+  vertical-align: bottom;
+
 }
 
-thead tr td{
+thead tr td {
   font-size: 1.5em;
   text-align: center;
 }
+
+.creneau {
+  width: 85%;
+  padding-bottom: 0%;
+  text-align: center
+}
+
+.groupeCreneaux {
+  margin-bottom: 2px;
+  text-align: center;
+  vertical-align: center;
+}
+
+
