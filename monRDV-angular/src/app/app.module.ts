@@ -15,7 +15,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {NgModule} from '@angular/core';
-import {ConnexionComponent} from './connexion/connexion.component';
+import { PatientInscriptionComponent } from './patient-inscription/patient-inscription.component';
+import {PatientInscriptionHttpService} from "./patient-inscription/patient-inscription-http.service";
+import { ConnexionComponent } from './connexion/connexion.component';
+import {ConnexionService} from "./connexion/connexion.service";
 
 
 const routes: Routes = [
@@ -23,6 +26,7 @@ const routes: Routes = [
   {path: 'patient/mesrdvavenir', component: PatientMesRdvAVenirComponent},
   {path: 'patient/mesrdvpasses', component: PatientMesRdvPassesComponent},
   {path: 'patient/mesinfos/:id', component: PatientMesInfosComponent},
+  {path: 'patient/inscription', component: PatientInscriptionComponent},
   {path: 'patient/connexion', component: ConnexionComponent},
 
   {path: '', redirectTo: 'patient/mesinfos/8', pathMatch: 'full'},
@@ -40,6 +44,8 @@ const routes: Routes = [
     PatientMesRdvAVenirComponent,
     PatientMesRdvPassesComponent,
     PatientMesInfosComponent,
+    PatientInscriptionComponent,
+    PatientMesInfosComponent,
     ConnexionComponent
   ],
   imports: [
@@ -48,8 +54,8 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [PatientMesPatientsHttpService, PatientRdvInformationHttpService,
-    PatientCalendrierHttpService, PatientDonneesUtilisateurHttpService],
+  providers: [PatientMesPatientsHttpService, PatientRdvInformationHttpService, PatientInscriptionHttpService,
+    PatientCalendrierHttpService, PatientDonneesUtilisateurHttpService, ConnexionService],
 
   bootstrap: [AppComponent]
 })

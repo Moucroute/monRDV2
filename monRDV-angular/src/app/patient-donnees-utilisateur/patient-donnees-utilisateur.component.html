@@ -1,47 +1,66 @@
+<div class="panel-group">
 
-<div class="form-group">
-  <ul>
-    <li>Nom: {{current.prenom }}</li>
-    <li>Prénom: {{current.nom}}</li>
-    <li>Email: {{current.utilisateur?.email}}</li>
-    <li>Password: {{current.utilisateur?.motDePasse}}</li>
-    <li>Telephone: {{current.utilisateur?.telephone}}</li>
-  </ul>
+  <div class="panel panel-primary">
+    <div class="panel-heading"><h4>Infos Utilisateur</h4></div>
+    <br>
 
-
-<button class="btn btn-info" (click)="edit()">Modifier mes informations</button>
-
-  <div *ngIf="affiche" class="panel panel-primary">
 
     <div class="form-group">
-      <label for="nom">Prénom:</label>
-      <input type="text" class="form-control" id="nom" [(ngModel)]="patientForm.nom">
+      <ul class="list-group">
+        <li class="list-group-item"><b>Nom : </b> {{current.prenom }}</li>
+        <li class="list-group-item"><b>Prénom : </b>{{current.nom}}</li>
+        <li class="list-group-item"><b>Email : </b>{{current.utilisateur?.email}}</li>
+        <li class="list-group-item"><b>Mot de passe : </b>{{current.utilisateur?.motDePasse}}</li>
+        <li class="list-group-item"><b>Téléphone : </b>{{current.utilisateur?.telephone}}</li>
+      </ul>
+      <br>
+
+      <div class="panel-footer">
+        <button class="btn btn-primary" (click)="edit()">Modifier mes informations</button>
+      </div>
     </div>
-
-  <div class="form-group">
-    <label for="prenom">Prénom:</label>
-    <input type="text" class="form-control" id="prenom" [(ngModel)]="patientForm.prenom">
-  </div>
-
-  <div class="form-group">
-    <label for="email">Name:</label>
-    <input type="text" class="form-control" id="email" [(ngModel)]="patientForm.utilisateur.email">
-  </div>
-
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="text" class="form-control" id="pwd" [(ngModel)]="patientForm.utilisateur.motDePasse">
-  </div>
-
-  <div class="form-group">
-    <label for="tel">Téléphone:</label>
-    <input type="text" class="form-control" id="tel" [(ngModel)]="patientForm.utilisateur.telephone">
-  </div>
-
-    <button class="btn btn-info" (click)="save()">Valider</button>
-    <button class="btn btn-info" (click)="cancel()">Annuler</button>
-
   </div>
 
 
+      <div *ngIf="affiche" class="panel panel-primary">
+        <div class="panel-heading">Modification des données utilisateur</div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" class="form-control" id="nom" [(ngModel)]="patientForm.nom">
+          </div>
 
+          <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" class="form-control" id="prenom" [(ngModel)]="patientForm.prenom">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="text" class="form-control" id="email" [(ngModel)]="patientForm.utilisateur.email">
+          </div>
+
+          <div class="form-group">
+            <label for="pwd">Mot de passe :</label>
+            <input type="text" class="form-control" id="pwd" [(ngModel)]="patientForm.utilisateur.motDePasse">
+          </div>
+
+          <div class="form-group">
+            <label for="tel">Téléphone :</label>
+            <input type="text" class="form-control" id="tel" [(ngModel)]="patientForm.utilisateur.telephone">
+          </div>
+
+          <div class="panel-footer">
+            <div class="btn-group">
+              <button class="btn btn-success"><span (click)="save()" class="glyphicon glyphicon-ok"></span></button>
+              <button class="btn btn-warning"><span (click)="cancel()" class="glyphicon glyphicon-remove"></span>
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+</div>

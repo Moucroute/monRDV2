@@ -1,10 +1,9 @@
 <div class="panel panel-primary">
-  <div class="panel-heading">Liste des RDV à venir</div>
+
   <div class="panel-body">
 
     <table class="table table-striped">
       <tr>
-        <th>N° du RDV</th>
         <th>Patient</th>
         <th>Date de début</th>
         <th>Date de fin</th>
@@ -16,10 +15,9 @@
 
 
       <tr>
-        <td></td>
         <td>{{rendezVous.patient.nom}} {{rendezVous.patient.prenom}}</td>
-        <td>{{heureDebut | date:'HH:mm'}}</td>
-        <td>{{heureFin | date:'HH:mm'}}</td>
+        <td>{{heureDebut | date:'short'}}</td>
+        <td>{{heureFin | date:'short'}}</td>
         <td>{{rendezVous.creneaux[0].praticien.nom}} {{rendezVous.creneaux[0].praticien.prenom}}</td>
         <th>{{rendezVous.modalite.motif.specialite.libelle}}</th>
         <td>{{rendezVous.creneaux[0].lieu.adresse.rue}}, {{rendezVous.creneaux[0].lieu.adresse.codePostal}}, {{rendezVous.creneaux[0].lieu.adresse.ville}} </td>

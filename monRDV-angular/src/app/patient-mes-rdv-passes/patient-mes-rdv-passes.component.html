@@ -1,6 +1,13 @@
 
+<div class="panel panel-primary">
 
-<p *ngFor="let rendezvous of listRendezvous">
+<div class="panel-heading">Liste des RDV passés</div>
+
+
+    <table class="table table-striped">
+<tr *ngFor="let rendezvous of listRendezvous">
     <app-patient-rdv-information [rendezVous]=rendezvous></app-patient-rdv-information>
-</p>
+</tr>
+    </table>
 
+</div>
