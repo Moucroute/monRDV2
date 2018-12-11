@@ -33,7 +33,6 @@ export class PatientDonneesUtilisateurComponent implements OnInit {
       this.patientForm = resp.json(), this.affiche = true;
       console.log(this.patientForm);
     }, err => console.log(err));
-
   }
 
   save() {
