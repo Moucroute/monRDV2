@@ -67,7 +67,7 @@ export class PatientCalendrierComponent implements OnInit {
   plage(rdv: RendezVous) {
     let b = true;
     for (const creneau of rdv.creneaux) {
-      if (b = true) {
+      if (b === true) {
         this.heureDebut = creneau.debut;
         b = false;
       }
