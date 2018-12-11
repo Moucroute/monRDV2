@@ -23,7 +23,6 @@ export class RendezVous {
     this._creneaux = creneaux;
   }
 
-
   get id(): number {
     return this._id;
   }

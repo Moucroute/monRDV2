@@ -7,9 +7,9 @@ export class Patient {
   defaut: boolean;
   nom: string;
   prenom: string;
-  dateNaissance: Date = new Date();
-  dateCreation: Date = new Date();
-  utilisateur: Utilisateur;
+  dateNaissance: Date;
+  dateCreation: Date;
+  utilisateur: Utilisateur = new Utilisateur();
   rendezVous: Array<RendezVous> = new Array<RendezVous>();
 
 

@@ -1,16 +1,15 @@
 
 <div class="form-group">
   <ul>
-    <li>Nom: {{currentPatient.prenom }}</li>
-    <li>Prénom: {{currentPatient.nom}}</li>
-    <li>Email: {{current.email}}</li>
-    <li>Password: {{current.motDePasse}}</li>
-    <li>Password: {{current.telephone}}</li>
+    <li>Nom: {{current.prenom }}</li>
+    <li>Prénom: {{current.nom}}</li>
+    <li>Email: {{current.utilisateur?.email}}</li>
+    <li>Password: {{current.utilisateur?.motDePasse}}</li>
+    <li>Password: {{current.utilisateur?.telephone}}</li>
   </ul>
 
 
-
-<button class="btn btn-info" (click)="edit(353)">Modifier mes informations</button>
+<button class="btn btn-info" (click)="edit()">Modifier mes informations</button>
 
   <div *ngIf="affiche" class="panel panel-primary">
 
