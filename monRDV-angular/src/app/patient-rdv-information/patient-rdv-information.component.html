@@ -14,10 +14,10 @@
         <th>N° de téléphone</th>
       </tr>
 
-      <tr *ngFor="let rendezvous of listRendezVous">
+      <tr *ngFor="let rendezvous of listRendezvous">
         <td>{{rendezvous.patient.nom}} {{rendezvous.patient.prenom}}</td>
-        <td>{{heureDebut}}</td>
-        <td>{{heureFin}}</td>
+        <td></td>
+        <td></td>
         <td>{{rendezvous.creneaux[0].praticien.nom}} {{rendezvous.creneaux[0].praticien.prenom}}</td>
         <th>{{rendezvous.modalite.motif.specialite.libelle}}</th>
         <td>{{rendezvous.creneaux[0].lieu.adresse.rue}}, {{rendezvous.creneaux[0].lieu.adresse.codePostal}}, {{rendezvous.creneaux[0].lieu.adresse.ville}} </td>

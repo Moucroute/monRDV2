@@ -1,8 +1,7 @@
-import {PatientRdvInformationHttpService} from './patient-rdv-information-http.service';
-import {ActivatedRoute} from '@angular/router';
-import {Component, Input, OnInit} from '@angular/core';
-import {RendezVous} from '../model/rendez-vous';
-
+import {PatientRdvInformationHttpService} from "./patient-rdv-information-http.service";
+import {ActivatedRoute} from "@angular/router";
+import {Component, Input, OnInit} from "@angular/core";
+import {RendezVous} from "../model/rendez-vous";
 
 @Component({
   selector: 'app-patient-rdv-information',
@@ -14,16 +13,16 @@ export class PatientRdvInformationComponent implements OnInit {
   @Input('utilisateurId')
   utilisateurId: number;
 
-  listRendezVous: Array<RendezVous> = new Array<RendezVous>();
-  rendezvous: RendezVous;
-  heureDebut: Date;
-  heureFin: Date;
+  @Input()
+  idUtilisateur: number;
+
+  listRendezvous: Array<RendezVous>;
+
+  // private heureDebut: Date;
+  // private heureFin: Date;
 
   constructor(private route: ActivatedRoute, private patientRdvInformationHttpService: PatientRdvInformationHttpService) {
-
-    this.list();
-
-
+    this.chercherListRendezvous();
     // this.rendezvous = this.patientRdvInformationHttpService.findRendezvousById(1);
     // this.heureDebut = this.patientRdvInformationHttpService.findHeureDebutRendezvous(1);
     // this.heureFin = this.patientRdvInformationHttpService.findHeureFinRendezvous(1);
@@ -32,8 +31,12 @@ export class PatientRdvInformationComponent implements OnInit {
   ngOnInit() {
   }
 
-  list() {
-    this.patientRdvInformationHttpService.findRendezvousByUtilisateurId(this.utilisateurId).subscribe(resp => this.listRendezVous = resp.json());
+  chercherListRendezvous() {
+    this.patientRdvInformationHttpService.findRendezvous(7).subscribe(
+      resp => {
+        this.listRendezvous = resp.json();
+      },
+      err => console.log(err));
   }
 
   // findHeureDebutRendezvous(id: number): Date {
