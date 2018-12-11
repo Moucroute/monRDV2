@@ -25,6 +25,7 @@ export class PatientRdvInformationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.chercherListRendezvous();
   }
 
   chercherListRendezvous() {
