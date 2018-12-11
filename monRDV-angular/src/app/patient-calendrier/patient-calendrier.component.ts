@@ -198,7 +198,14 @@ export class PatientCalendrierComponent implements OnInit {
 
   }
 
+  addListRdv(i: number, maSemaine: Array<JourCalendrier>): Array<RendezVous> {
+    let rendezVousDuJour: Array<RendezVous>;
+    rendezVousDuJour = this.listRendezVous(i);
+    for (let l = 0; l < rendezVousDuJour.length; l++) {
 
+    }
+    return rendezVousDuJour;
+  }
 }
 
 

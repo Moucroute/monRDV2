@@ -18,6 +18,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {NgModule} from '@angular/core';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,8 @@ const routes: Routes = [
   {path: 'patient/mesrdvavenir', component: PatientMesRdvAVenirComponent},
   {path: 'patient/mesrdvpasses', component: PatientMesRdvPassesComponent},
   {path: 'patient/mesinfos/:id', component: PatientMesInfosComponent},
+  {path: 'patient/connexion', component: ConnexionComponent},
+
   {path: '', redirectTo: 'patient/mesinfos/8', pathMatch: 'full'},
 
 ]
@@ -39,7 +42,8 @@ const routes: Routes = [
     PatientMesPatientsComponent,
     PatientMesRdvAVenirComponent,
     PatientMesRdvPassesComponent,
-    PatientMesInfosComponent
+    PatientMesInfosComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
