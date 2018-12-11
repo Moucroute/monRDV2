@@ -24,35 +24,82 @@
       </div>
 
        <div class="panel-footer">
-        <button class="btn btn-primary"><span (click)="add(current)" class="glyphicon glyphicon-plus"></span></button>
+        <!--<button class="btn btn-primary"><span (click)="add(current)" class="glyphicon glyphicon-plus"></span></button>-->
+         <button type="button" data-toggle="modal" class="btn btn-primary" data-target="#myModal"><span (click)="add(current)" class="glyphicon glyphicon-plus"></span></button>
+
+
       </div>
     </div>
 
 
-    <div class="panel panel-primary" *ngIf="show">
-      <div class="panel-heading">Edition d'un patient</div>
-      <div class="panel-body">
-        <div class="form-group">
-          <label for="nom">Nom:</label>
-          <input [(ngModel)]="current.nom" type="text" class="form-control" id="nom">
+
+
+  <!-- Bouton de déclanchement de la modale -->
+  <!--<button type="button" data-toggle="modal" class="btn btn-primary btn-lg" data-target="#myModal"><i class="icon icon-sign-out icon-lg"></i> Bouton</button>-->
+
+  <!-- Modale -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Edition d'un patient</h4>
         </div>
-        <div class="form-group">
-          <label for="prenom">Prenom:</label>
-          <input [(ngModel)]="current.prenom"  type="text" class="form-control" id="prenom">
+
+        <div class="modal-body">
+          <div class="panel-body">
+            <div class="form-group">
+              <label for="nom">Nom:</label>
+              <input [(ngModel)]="current.nom" type="text" class="form-control" id="nom">
+            </div>
+            <div class="form-group">
+              <label for="prenom">Prenom:</label>
+              <input [(ngModel)]="current.prenom"  type="text" class="form-control" id="prenom">
+            </div>
+            <div class="form-group">
+              <label for="dateNaissance">Date de naissance:</label>
+              <input [(ngModel)]="current.dateNaissance" type="date" class="form-control" id="dateNaissance">
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="dateNaissance">Date de naissance:</label>
-          <input [(ngModel)]="current.dateNaissance" type="date" class="form-control" id="dateNaissance">
-        </div>
-      </div>
-      <div class="panel-footer">
-        <div class="btn-group">
-          <button class="btn btn-success"><span (click)="saver()" class="glyphicon glyphicon-ok"></span></button>
-          <button class="btn btn-warning"><span (click)="cancel()" class="glyphicon glyphicon-remove"></span></button>
+
+
+        <div class="modal-footer">
+          <div class="btn-group">
+            <button class="btn btn-success" data-dismiss="modal" aria-hidden="true"><span (click)="saver()" class="glyphicon glyphicon-ok"></span></button>
+            <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true"><span (click)="cancel()" class="glyphicon glyphicon-remove"></span></button>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
+</div>
+
+    <!--<div class="panel panel-primary" *ngIf="show" >-->
+      <!--<div class="panel-heading">Edition d'un patient</div>-->
+      <!--<div class="panel-body">-->
+        <!--<div class="form-group">-->
+          <!--<label for="nom">Nom:</label>-->
+          <!--<input [(ngModel)]="current.nom" type="text" class="form-control" id="nom">-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+          <!--<label for="prenom">Prenom:</label>-->
+          <!--<input [(ngModel)]="current.prenom"  type="text" class="form-control" id="prenom">-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+          <!--<label for="dateNaissance">Date de naissance:</label>-->
+          <!--<input [(ngModel)]="current.dateNaissance" type="date" class="form-control" id="dateNaissance">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="panel-footer">-->
+        <!--<div class="btn-group">-->
+          <!--<button class="btn btn-success"><span (click)="saver()" class="glyphicon glyphicon-ok"></span></button>-->
+          <!--<button class="btn btn-warning"><span (click)="cancel()" class="glyphicon glyphicon-remove"></span></button>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
 
 
