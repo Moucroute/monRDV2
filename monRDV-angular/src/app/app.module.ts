@@ -16,6 +16,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {NgModule} from '@angular/core';
 import {ConnexionComponent} from './connexion/connexion.component';
+import {ConnexionService} from "./connexion/connexion.service";
 
 
 const routes: Routes = [
@@ -49,7 +50,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [PatientMesPatientsHttpService, PatientRdvInformationHttpService,
-    PatientCalendrierHttpService, PatientDonneesUtilisateurHttpService],
+    PatientCalendrierHttpService, PatientDonneesUtilisateurHttpService, ConnexionService],
 
   bootstrap: [AppComponent]
 })
