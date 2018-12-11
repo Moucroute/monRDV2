@@ -1,7 +1,17 @@
 import {Injectable} from '@angular/core';
+import {Http, Response} from '@angular/http';
+import {CreneauDisponible} from "../model/creneau-disponible";
+import {Lieu} from "../model/lieu";
+import {RendezVous} from "../model/rendez-vous";
+import {Modalite} from "../model/modalite";
+import {Motif} from "../model/motif";
+import {Specialite} from "../model/specialite";
+import {Praticien} from "../model/praticien";
+import {Patient} from "../model/patient";
+import {Utilisateur} from "../model/utilisateur";
+import {Adresse} from "../model/adresse";
+import {Observable} from 'rxjs/Observable';
 
-import {RendezVous} from '../model/rendez-vous';
-import {Http} from '@angular/http';
 
 @Injectable()
 export class PatientRdvInformationHttpService {
@@ -26,23 +36,52 @@ export class PatientRdvInformationHttpService {
   // private creneaudisponible: CreneauDisponible = new CreneauDisponible(1, 0, this.date, this.date, this.lieu, this.praticien, this.rendezvous);
 
 
+
   constructor(private http: Http) {
-
-
-    //   this.creneaux.push(this.creneaudisponible);
-    //   this.rendezvouslist.push(this.rendezvous);
-    //   this.praticiens.push(this.praticien);
-    //   this.motifs.push(this.motif);
-    //   this.lieux.push(this.lieu);
-    //   this.modalites.push(this.modalite);
-    //   this.specialites.push(this.specialite);
-
+    // this.creneaux.push(this.creneaudisponible);
+    // this.rendezvouslist.push(this.rendezvous);
+    // this.praticiens.push(this.praticien);
+    // this.motifs.push(this.motif);
+    // this.lieux.push(this.lieu);
+    // this.modalites.push(this.modalite);
+    // this.specialites.push(this.specialite);
   }
 
 
-  findRendezvousByUtilisateurId(id: number) {
-    return this.http.get('http://localhost:8080/patient/Historique/' + id);
+  findRendezvous(id: number): Observable<Response> {
+    return this.http.get('http://localhost:8080/Historique/' + id);
   }
 
+
+  // findRendezvousById(id: number): RendezVous{
+  //   return this.rendezvous
+  // }
+
+
+  // findHeureDebutRendezvous(id: number): Date {
+  //
+  // let rendezvousTrouve = this.findRendezvousById(id);
+  // let heureDebut = rendezvousTrouve.creneaux[0].debut;
+  //
+  // for(let creneau of rendezvousTrouve.creneaux){
+  //   if(creneau.debut < heureDebut){
+  //     heureDebut = creneau.debut;
+  //   }
+  // }
+  // return heureDebut;
+  // }
+  //
+  // findHeureFinRendezvous(id: number): Date {
+  //
+  //   let rendezvousTrouve = this.findRendezvousById(id);
+  //   let heureFin = rendezvousTrouve.creneaux[0].fin;
+  //
+  //   for(let creneau of rendezvousTrouve.creneaux){
+  //     if(creneau.debut > heureFin){
+  //       heureFin = creneau.debut;
+  //     }
+  //   }
+  //   return heureFin;
+  // }
 
 }
