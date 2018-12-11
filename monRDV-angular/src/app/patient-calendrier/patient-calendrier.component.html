@@ -3,6 +3,7 @@
 <div *ngFor="let rdv of listRendezVous(7)">
   <div>{{rdv.patient.nom}}</div>
   <div>{{plage()}}</div>
+  <div *ngIf="heureDebut.getDay()=="
 </div>
 
 
@@ -56,7 +57,12 @@
       </thead>
       <tbody class="ligneCalendrier">
       <tr>
-        <td *ngFor="let jour of this.semaine1">{{jour.num}}</td>
+        <td *ngFor="let jour of this.semaine1">
+            <div *ngFor="let rdv of listRendezVous(7)">
+            <div>{{rdv.patient.nom}}</div>
+            <div>{{plage()}}</div>
+            <div *ngIf="heureDebut==jour.dateComplete">
+        </div>{{jour.num}}</td>
       </tr>
       <tr>
         <td *ngFor="let jour of this.semaine2">{{jour.num}}</td>

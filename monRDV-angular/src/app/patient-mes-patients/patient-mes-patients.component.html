@@ -10,7 +10,7 @@
             <th>Date de Naissance</th>
             <th></th>
           </tr>
-          <tr *ngFor="let patient of list()">
+          <tr *ngFor="let patient of patients">
             <td>{{patient.nom}}</td>
             <td>{{patient.prenom}}</td>
             <td>{{patient.dateNaissance | date : 'dd/MM/yyyy' }}</td>

@@ -3,13 +3,14 @@ export class JourCalendrier {
   private _annee: number;
   private _mois: number;
   private _libelle: string;
+  private _dateComplete: Date;
 
-
-  constructor(num?: number, annee?: number, mois?: number, libelle?: string) {
+  constructor(num?: number, annee?: number, mois?: number, libelle?: string, dateComplete?: Date) {
     this._num = num;
     this._annee = annee;
     this._mois = mois;
     this._libelle = libelle;
+    this._dateComplete = dateComplete;
   }
 
 
@@ -43,5 +44,13 @@ export class JourCalendrier {
 
   set libelle(value: string) {
     this._libelle = value;
+  }
+
+  get dateComplete(): Date {
+    return this._dateComplete;
+  }
+
+  set dateComplete(value: Date) {
+    this._dateComplete = value;
   }
 }

@@ -201,19 +201,19 @@ public class MonRdvBootRestApplicationTests {
 		rendezvous1.setUtilisateur(utilisateur1);
 		rendezvous1.setPatient(patient1);
 		rendezvous1.setModalite(modalite1);
-		rendezvous1.setRendezVous(null);
+//		rendezvous1.setRendezVous(null);
 		rendezvous1.setStatut(true);
 		RendezVous rendezvous2 = new RendezVous();
 		rendezvous2.setUtilisateur(utilisateur1);
 		rendezvous2.setPatient(patient2);
 		rendezvous2.setModalite(modalite1);
 		rendezvous2.setStatut(true);
-		rendezvous2.setRendezVous(null);
+//		rendezvous2.setRendezVous(null);
 		RendezVous rendezvous3 = new RendezVous();
 		rendezvous3.setUtilisateur(utilisateur1);
 		rendezvous3.setPatient(patient3);
 		rendezvous3.setModalite(modalite1);
-		rendezvous3.setRendezVous(null);
+//		rendezvous3.setRendezVous(null);
 		rendezvous3.setStatut(true);
 
 		rendezvous1 = repoRendezVous.save(rendezvous1);
@@ -370,11 +370,11 @@ public class MonRdvBootRestApplicationTests {
 		modalite1.setRendezVous(rendezvouss1);
 
 		patient1.setUtilisateur(utilisateur1);
-		patient1.setListRendezVous(rendezvouss1);
+//		patient1.setListRendezVous(rendezvouss1);
 		patient2.setUtilisateur(utilisateur1);
-		patient2.setListRendezVous(rendezvouss1);
+//		patient2.setListRendezVous(rendezvouss1);
 		patient3.setUtilisateur(utilisateur1);
-		patient3.setListRendezVous(rendezvouss1);
+//		patient3.setListRendezVous(rendezvouss1);
 
 //		Saves finale ------------------------------------------------------------------------------------
 		creneaudisponible1 = repoCreneauDisponible.save(creneaudisponible1);

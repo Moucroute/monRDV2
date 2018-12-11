@@ -20,9 +20,7 @@ export class PatientCalendrierComponent implements OnInit {
   private heureFin: Date;
 
 
-
   arthur: Utilisateur = new Utilisateur();
-  rdv1: RendezVous = new RendezVous(1, 0, true, this.arthur);
 
   dateJour: Date = new Date();
   semaine: Array<string> = new Array<string>('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi');
@@ -61,9 +59,11 @@ export class PatientCalendrierComponent implements OnInit {
 
   listRendezVous(id: number): Array<RendezVous> {
     this.patientCalendrierservice.findRendezVousById(id).subscribe(resp => {
-      this.rendezVouss = resp.json(); }, err => console.log(err));
+      this.rendezVouss = resp.json();
+    }, err => console.log(err));
     return this.rendezVouss;
   }
+
   plage(rdv: RendezVous) {
     let b = true;
     for (const creneau of rdv.creneaux) {
@@ -100,6 +100,7 @@ export class PatientCalendrierComponent implements OnInit {
         }
         currentDay.libelle = this.semaine[j];
         currentDay.num = i;
+        currentDay.dateComplete = dayDate;
         mois.push(currentDay);
         traite = 'true';
       } else {
@@ -191,6 +192,7 @@ export class PatientCalendrierComponent implements OnInit {
     return nbreJour;
 
   }
+
 
 }
 
