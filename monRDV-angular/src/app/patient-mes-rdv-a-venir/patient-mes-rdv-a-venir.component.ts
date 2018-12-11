@@ -16,7 +16,6 @@ export class PatientMesRdvAVenirComponent implements OnInit {
   }
 
   test(rdv: RendezVous) {
-    console.log("blabla");
     this.rdv = rdv;
   }
 
