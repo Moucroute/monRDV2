@@ -10,15 +10,8 @@ import {PatientDonneesUtilisateurHttpService} from './patient-donnees-utilisateu
 import {PatientRdvInformationComponent} from './patient-rdv-information/patient-rdv-information.component';
 import {PatientMesRdvAVenirComponent} from './patient-mes-rdv-a-venir/patient-mes-rdv-a-venir.component';
 
-<<<<<<< Updated upstream
 import { PatientMesRdvPassesComponent } from './patient-mes-rdv-passes/patient-mes-rdv-passes.component';
 import { PatientMesInfosComponent } from './patient-mes-infos/patient-mes-infos.component';
-
-
-=======
-import {PatientMesRdvPassesComponent} from './patient-mes-rdv-passes/patient-mes-rdv-passes.component';
-import {PatientMesInfosComponent} from './patient-mes-infos/patient-mes-infos.component';
->>>>>>> Stashed changes
 
 import {RouterModule, Routes} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
