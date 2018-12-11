@@ -20,12 +20,14 @@ export class PatientCalendrierComponent implements OnInit {
   private heureFin: Date;
 
 
+
   arthur: Utilisateur = new Utilisateur();
 
   dateJour: Date = new Date();
   semaine: Array<string> = new Array<string>('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi');
   annee: Array<string> = new Array<string>('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
-  @Input() currentMonth: number = this.dateJour.getMonth();
+  @Input()
+  currentMonth: number = this.dateJour.getMonth();
   currentYear: number = this.dateJour.getFullYear();
   libelleMois: string = this.annee[this.currentMonth];
   currentDayDate: Date = new Date(this.currentYear, this.currentMonth, 1);
@@ -43,8 +45,10 @@ export class PatientCalendrierComponent implements OnInit {
   }
 
   ngOnInit() {
+this.listRendezVous(7);
   }
 
+  // rendezVouss = this.listRendezVous(7);
 
   // listRendezVous2(id: number) {
   //   this.patientCalendrierservice.findRendezVousById(id).subscribe(resp => {
@@ -57,11 +61,11 @@ export class PatientCalendrierComponent implements OnInit {
   //     err => console.log(err));
   // }
 
-  listRendezVous(id: number): Array<RendezVous> {
+  listRendezVous(id: number) {
     this.patientCalendrierservice.findRendezVousById(id).subscribe(resp => {
       this.rendezVouss = resp.json();
     }, err => console.log(err));
-    return this.rendezVouss;
+
   }
 
   plage(rdv: RendezVous) {
@@ -73,6 +77,11 @@ export class PatientCalendrierComponent implements OnInit {
       }
       this.heureFin = creneau.fin;
     }
+  }
+  compareDates() {
+
+    return true;
+
   }
 
   genererMois(): Array<JourCalendrier> {
@@ -198,14 +207,14 @@ export class PatientCalendrierComponent implements OnInit {
 
   }
 
-  addListRdv(i: number, maSemaine: Array<JourCalendrier>): Array<RendezVous> {
-    let rendezVousDuJour: Array<RendezVous>;
-    rendezVousDuJour = this.listRendezVous(i);
-    for (let l = 0; l < rendezVousDuJour.length; l++) {
-
-    }
-    return rendezVousDuJour;
-  }
+  // addListRdv(i: number, maSemaine: Array<JourCalendrier>): Array<RendezVous> {
+  //   let rendezVousDuJour: Array<RendezVous>;
+  //   rendezVousDuJour = this.listRendezVous(i);
+  //   for (let l = 0; l < rendezVousDuJour.length; l++) {
+  //
+  //   }
+  //   return rendezVousDuJour;
+  // }
 }
 
 

@@ -23,10 +23,9 @@ export class PatientCalendrierHttpService {
 
   load() {
     this.http.get('http://localhost:8080/patient/monComptePatient/').subscribe(resp => {
-      this.utilisateur = resp.json();
-      this.patients = resp.json();
+
       this.rendezVous = resp.json();
-      this.creneaux = resp.json();
+
     }, err => console.log(err));
   }
 
