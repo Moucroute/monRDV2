@@ -78,9 +78,10 @@ this.listRendezVous(7);
       this.heureFin = creneau.fin;
     }
   }
-  compareDates() {
+  compareDates(jour: Date) {
+    return this.heureDebut === jour;
 
-    return true;
+
 
   }
 

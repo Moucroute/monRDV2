@@ -45,11 +45,12 @@
       <tr>
         <td *ngFor="let jour of this.semaine1">
           <div *ngFor="let rdv of rendezVouss">
-            <!--<div>{{plage(rdv)}}</div>-->
+            <div>{{plage(rdv)}}</div>
             <!--<div>{{rdv.patient.nom}}</div>-->
-            <!--<div *ngif=compareDates()>-->
+            <div *ngIf="compareDates(jour.dateComplete)">
               <div>{{rdv.patient.prenom}}</div>
             <!--</div>-->
+          </div>
           </div>
 
   {{jour.num}}
