@@ -1,10 +1,6 @@
 <div>
-
-
-  <app-patient-calendrier></app-patient-calendrier>
-
+  <app-patient-calendrier (childEvent)="test($event)"></app-patient-calendrier>
 </div>
-<!--<div>-->
-
-  <!--<app-patient-rdv-information></app-patient-rdv-information>-->
-<!--</div>-->
+<div *ngIf="isAffiche()">
+  <app-patient-rdv-information [rendezVous]="rdv"></app-patient-rdv-information>
+</div>

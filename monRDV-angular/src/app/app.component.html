@@ -1,5 +1,5 @@
 
-<h1> Mon Compte Patient </h1>
+<h1 style="text-align:center; color: ghostwhite; background-color: mediumblue" > Mon Compte Patient </h1>
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -9,11 +9,11 @@
 
       <li role="presentation" ><a [routerLink]="['patient/mesrdvavenir']" routerLinkActive="active">Mes RDV a Venir</a></li>
       <li role="presentation" ><a [routerLink]="['patient/mesrdvpasses']" routerLinkActive="active">Mes RDV Passes</a></li>
-      <li role="presentation" ><a [routerLink]="['patient/mesinfos/8']" routerLinkActive="active">Mes Infos</a></li>
+      <li role="presentation" ><a [routerLink]="['patient/mesinfos']" routerLinkActive="active">Mes Infos</a></li>
 
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
+      <li><a [routerLink]="['/patient/inscription']"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
       <li><a [routerLink]="['patient/connexion']" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
     </ul>
 

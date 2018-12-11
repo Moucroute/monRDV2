@@ -20,7 +20,7 @@ export class PatientCalendrierComponent implements OnInit {
   private heureFin: Date;
 
   @Output()
-  childEvent = new EventEmitter();
+  childEvent : EventEmitter<RendezVous> = new EventEmitter<RendezVous>();
 
 
   arthur: Utilisateur = new Utilisateur();
@@ -219,6 +219,9 @@ export class PatientCalendrierComponent implements OnInit {
 
   }
 
+  rdvParJour() {
+
+  }
 }
 
 
