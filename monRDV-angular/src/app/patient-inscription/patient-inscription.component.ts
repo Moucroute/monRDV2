@@ -13,14 +13,14 @@ export class PatientInscriptionComponent implements OnInit {
 
   currentPatient: Patient = new Patient();
 
-  constructor(private salleHttpService: SalleHttpService, private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
   valider(){
-    this.current.patients.push(this.currentPatient);
-    this.salleHttpService.save(this.current);
+    // this.current.patients.push(this.currentPatient);
+    // this.salleHttpService.save(this.current);
   }
 
 }

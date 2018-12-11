@@ -9,12 +9,12 @@ export class PatientInscriptionHttpService {
 
 
 
-  save(utilisateur: Utilisateur) {
-    if (utilisateur) {
-        this.http.post('http://localhost:8080/utilisateur', utilisateur)
-      }
-
-    }
+  // save(utilisateur: Utilisateur) {
+  //   if (utilisateur) {
+  //       this.http.post('http://localhost:8080/utilisateur', utilisateur)
+  //     }
+  //
+  //   }
 
 
 
