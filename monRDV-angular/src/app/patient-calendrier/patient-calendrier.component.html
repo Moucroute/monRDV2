@@ -1,4 +1,3 @@
-
 <div>
   <h1>Mon planning</h1>
   <div id="holder" class="row"></div>
@@ -34,27 +33,29 @@
       </tr>
       </thead>
       <tbody class="ligneCalendrier">
-      <tr>
-        <td *ngFor="let jour of this.semaine1">
-          <div *ngFor="let rdv of rendezVouss">
-            <div>{{plage(rdv)}}</div>
-            <!--<div>{{rdv.patient.nom}}</div>-->
-            <div *ngIf="compareDates(jour.dateComplete)">
-              <button class="btn btn-success" (click)="afficheDetail(rdv)">{{heureDebut | date :'HH:mm'}}<br>{{rdv.patient.prenom}}</button>
-              <!--</div>-->
-            </div>
-          </div>
 
+      <tr>
+
+        <td *ngFor="let jour of this.semaine1">
+            <div *ngFor="let rdv of rendezVouss">
+              <div>{{plage(rdv)}}</div>
+              <!--<div>{{rdv.patient.nom}}</div>-->
+              <div class="groupeCreneaux" *ngIf="compareDates(jour.dateComplete)">
+                <button class="btn btn-success creneau" (click)="afficheDetail(rdv)">{{heureDebut | date :'HH:mm'}} {{rdv.patient.prenom}}</button>
+              </div>
+            </div>
           {{jour.num}}
         </td>
       </tr>
+
       <tr>
         <td *ngFor="let jour of this.semaine2">
           <div *ngFor="let rdv of rendezVouss">
             <div>{{plage(rdv)}}</div>
             <!--<div>{{rdv.patient.nom}}</div>-->
-            <div *ngIf="compareDates(jour.dateComplete)">
-              <button class="btn btn-success" (click)="afficheDetail(rdv)">{{heureDebut | date :'HH:mm'}}<br>{{rdv.patient.prenom}}</button>
+            <div class="groupeCreneaux"  *ngIf="compareDates(jour.dateComplete)">
+              <button class="btn btn-success creneau" (click)="afficheDetail(rdv)">{{heureDebut | date :'HH:mm'}}
+                <br>{{rdv.patient.prenom}}</button>
               <!--</div>-->
             </div>
           </div>
@@ -65,8 +66,9 @@
           <div *ngFor="let rdv of rendezVouss">
             <div>{{plage(rdv)}}</div>
             <!--<div>{{rdv.patient.nom}}</div>-->
-            <div *ngIf="compareDates(jour.dateComplete)">
-              <button class="btn btn-success" (click)="afficheDetail(rdv)">{{heureDebut | date :'HH:mm'}}<br>{{rdv.patient.prenom}}</button>
+            <div class="groupeCreneaux"  *ngIf="compareDates(jour.dateComplete)">
+              <button class="btn btn-success creneau" (click)="afficheDetail(rdv)">{{heureDebut | date :'HH:mm'}}
+                <br>{{rdv.patient.prenom}}</button>
               <!--</div>-->
             </div>
           </div>
@@ -77,8 +79,9 @@
           <div *ngFor="let rdv of rendezVouss">
             <div>{{plage(rdv)}}</div>
             <!--<div>{{rdv.patient.nom}}</div>-->
-            <div *ngIf="compareDates(jour.dateComplete)">
-              <button class="btn btn-success" (click)="afficheDetail(rdv)">{{heureDebut | date :'HH:mm'}}<br>{{rdv.patient.prenom}}</button>
+            <div class="groupeCreneaux"  *ngIf="compareDates(jour.dateComplete)">
+              <button class="btn btn-success creneau" (click)="afficheDetail(rdv)">{{heureDebut | date :'HH:mm'}}
+                <br>{{rdv.patient.prenom}}</button>
               <!--</div>-->
             </div>
           </div>
@@ -89,8 +92,9 @@
           <div *ngFor="let rdv of rendezVouss">
             <div>{{plage(rdv)}}</div>
             <!--<div>{{rdv.patient.nom}}</div>-->
-            <div *ngIf="compareDates(jour.dateComplete)">
-              <button class="btn btn-success" (click)="afficheDetail(rdv)">{{heureDebut | date :'HH:mm'}}<br>{{rdv.patient.prenom}}</button>
+            <div class="groupeCreneaux"  *ngIf="compareDates(jour.dateComplete)">
+              <button class="btn btn-success creneau" (click)="afficheDetail(rdv)">{{heureDebut | date :'HH:mm'}}
+                <br>{{rdv.patient.prenom}}</button>
               <!--</div>-->
             </div>
           </div>

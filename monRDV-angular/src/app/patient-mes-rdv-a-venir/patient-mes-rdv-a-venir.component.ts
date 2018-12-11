@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {RendezVous} from "../model/rendez-vous";
 
 @Component({
@@ -8,15 +8,24 @@ import {RendezVous} from "../model/rendez-vous";
 })
 export class PatientMesRdvAVenirComponent implements OnInit {
 
-  private rendezvous: RendezVous;
-
-  constructor() { }
+  rdv: RendezVous;
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
-  afficherRDV(){
+  test(rdv: RendezVous) {
+    this.rdv = rdv;
+  }
 
+  isAffiche () {
+    if(this.rdv != null) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 
 }
