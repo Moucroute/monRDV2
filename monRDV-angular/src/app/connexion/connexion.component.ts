@@ -1,7 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ConnexionService} from "./connexion.service";
 import {Patient} from "../model/patient";
 import {Utilisateur} from "../model/utilisateur";
+import {Profil} from "../model/profil";
+import {Router, Routes} from "@angular/router";
 
 @Component({
   selector: 'app-connexion',
@@ -11,18 +13,17 @@ import {Utilisateur} from "../model/utilisateur";
 export class ConnexionComponent implements OnInit {
 
 
-  @Input()
   utilisateurId: number;
 
-  current: Utilisateur = new Utilisateur();
+  utilisateur: Utilisateur = new Utilisateur();
 
-  email: string;
+  email: string = '';
 
-  motDePasse: string;
+  motDePasse: string = '';
 
-  constructor(private connexionService: ConnexionService) {
+  constructor(private connexionService: ConnexionService, private router: Router) {
 
-    console.log(sessionStorage.setItem('id', 'utilisateurId'));
+    console.log(sessionStorage.setItem('id', 'utilisateur'));
 
   }
 
@@ -33,18 +34,42 @@ export class ConnexionComponent implements OnInit {
   }
 
 
-
-
   connexion() {
 
-    if (this.email = null) {
+    // if (this.email = '')  {
+    //   alert("Veuillez renseigner votre email et votre mot de passe");
+    // }
 
-      alert("Veuillez renseigner votre email");
+    this.connexionService.findByEmailMdp(this.email, this.motDePasse).subscribe(resp => {
+      this.utilisateur = resp.json();
+      if (this.utilisateur != null) {
+        sessionStorage.setItem('id', JSON.stringify(this.utilisateur));
 
-    }
 
+        console.log(this.utilisateur);
+
+        console.log(this.utilisateur.profil.toString());
+
+        if (this.utilisateur.profil.toString() == "Patient") {
+
+          this.router.navigate(['patient/mesrdvavenir']);
+
+        } else {
+
+          alert("Le compte praticien ne fonctionne pas encore");
+
+        }
+
+      } else {
+
+        alert("Cet identifiant est inconnu");
+
+      }
+    }, err => console.log(err));
 
 
   }
 
+
 }
+

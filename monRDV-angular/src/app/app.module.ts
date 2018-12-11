@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'patient/inscription', component: PatientInscriptionComponent},
   {path: 'patient/connexion', component: ConnexionComponent},
 
-  {path: '', redirectTo: 'patient/mesinfos/8', pathMatch: 'full'},
+  {path: '', redirectTo: '/', pathMatch: 'full'},
 
 ]
 
