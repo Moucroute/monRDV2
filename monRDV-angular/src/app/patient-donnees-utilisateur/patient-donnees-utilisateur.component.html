@@ -5,7 +5,7 @@
     <li>Prénom: {{current.nom}}</li>
     <li>Email: {{current.utilisateur?.email}}</li>
     <li>Password: {{current.utilisateur?.motDePasse}}</li>
-    <li>Password: {{current.utilisateur?.telephone}}</li>
+    <li>Telephone: {{current.utilisateur?.telephone}}</li>
   </ul>
 
 
@@ -15,27 +15,27 @@
 
     <div class="form-group">
       <label for="nom">Prénom:</label>
-      <input type="text" class="form-control" id="nom" disabled="disabled">
+      <input type="text" class="form-control" id="nom" [(ngModel)]="current.nom">
     </div>
 
   <div class="form-group">
     <label for="prenom">Prénom:</label>
-    <input type="text" class="form-control" id="prenom" disabled="disabled">
+    <input type="text" class="form-control" id="prenom" [(ngModel)]="current.prenom">
   </div>
 
   <div class="form-group">
     <label for="email">Name:</label>
-    <input type="text" class="form-control" id="email" disabled="disabled">
+    <input type="text" class="form-control" id="email" [(ngModel)]="current.utilisateur.email">
   </div>
 
   <div class="form-group">
     <label for="pwd">Password:</label>
-    <input type="password" class="form-control" id="pwd" disabled="disabled">
+    <input type="password" class="form-control" id="pwd" [(ngModel)]="current.utilisateur.motDePasse">
   </div>
 
   <div class="form-group">
-    <label for="tel">Password:</label>
-    <input type="text" class="form-control" id="tel" disabled="disabled">
+    <label for="tel">Téléphone:</label>
+    <input type="text" class="form-control" id="tel" [(ngModel)]="current.utilisateur.telephone">
   </div>
 
     <button class="btn btn-info" (click)="save()">Valider</button>

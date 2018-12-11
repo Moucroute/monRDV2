@@ -10,12 +10,12 @@ export class PatientDonneesUtilisateurHttpService {
   constructor(private http: Http) {
   }
 
-
   findPatientDefaut(id: number): Observable<Response> {
-    return this.http.get('http://localhost:8080/patients/monComptePatient/' + id);
+    return this.http.get('http://localhost:8080/patient/monComptePatient/' + id);
   }
 
-  save(utilisateur: Patient){
-
+  save(id: number, current: Patient): Observable<Response> {
+      return this.http.put('http://localhost:8080/patient/monComptePatient/' + id + '/MesModifs', current);
   }
+
 }

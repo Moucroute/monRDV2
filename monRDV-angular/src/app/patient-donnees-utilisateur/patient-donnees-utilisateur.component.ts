@@ -28,18 +28,13 @@ export class PatientDonneesUtilisateurComponent implements OnInit {
 
   edit() {
     this.affiche = true;
-    // this.patientDonneesUtilisateurService.findById(this.utilisateurId).subscribe(resp => {
-    //   this.current = resp.json();
-    //   console.log(this.current);
-    // }, err => console.log(err));
-    // this.patientDonneesUtilisateurService.findPatientDefaut(this.utilisateurId).subscribe(resp => {
-    //   this.currentPatient = resp.json();
-    //   console.log(this.currentPatient);
-    // }, err => console.log(err));
   }
 
   save() {
-    this.patientDonneesUtilisateurService.save(this.current);
+    this.patientDonneesUtilisateurService.save(this.current.id, this.current).subscribe(resp => {
+      this.current = resp.json();
+      console.log(this.current);
+    }, err => console.log(err));
     this.affiche = false;
   }
 
