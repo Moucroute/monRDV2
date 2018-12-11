@@ -29,16 +29,14 @@ export class PatientRdvInformationComponent implements OnInit {
 
     let heureDebut = rendezVousCurrent.creneaux[0].debut;
 
-    console.log(rendezVousCurrent.creneaux);
-
     for(let creneau of rendezVousCurrent.creneaux){
-      console.log(heureDebut);
-      console.log(creneau.debut);
+
       if(creneau.debut < heureDebut){
 
         heureDebut = creneau.debut;
       }
     }
+
     return heureDebut;
   }
 

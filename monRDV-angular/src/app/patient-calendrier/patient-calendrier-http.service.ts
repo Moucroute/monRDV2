@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Utilisateur} from '../model/utilisateur';
 import {RendezVous} from '../model/rendez-vous';
-import {CreneauDisponible} from '../model/creneau-disponible';
 import {Observable} from 'rxjs/Observable';
+import {CreneauDisponible} from '../model/creneau-disponible';
 
 
 class Patients {
