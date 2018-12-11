@@ -12,22 +12,18 @@ export class PatientDonneesUtilisateurComponent implements OnInit {
 
   @Input()
   utilisateurId: number;
+
   affiche: boolean = false;
-  current: Utilisateur = new Utilisateur();
-  currentPatient: Patient = new Patient();
+  current: Patient = new Patient();
 
   constructor(private patientDonneesUtilisateurService: PatientDonneesUtilisateurHttpService) {
   }
 
   ngOnInit() {
-    this.patientDonneesUtilisateurService.findById(this.utilisateurId).subscribe(resp => {
+    this.patientDonneesUtilisateurService.findPatientDefaut(this.utilisateurId).subscribe(resp => {
       this.current = resp.json();
       console.log(this.current);
     }, err => console.log(err));
-    // this.patientDonneesUtilisateurService.findPatientDefaut(this.utilisateurId).subscribe(resp => {
-    //   this.currentPatient = resp.json();
-    //   console.log(this.currentPatient);
-    // }, err => console.log(err));
   }
 
   edit() {
