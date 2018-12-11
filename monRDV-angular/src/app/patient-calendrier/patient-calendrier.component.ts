@@ -64,6 +64,12 @@ this.listRendezVous(7);
   listRendezVous(id: number) {
     this.patientCalendrierservice.findRendezVousById(id).subscribe(resp => {
       this.rendezVouss = resp.json();
+      for(let rdv of this.rendezVouss) {
+        for(let creneau of rdv.creneaux) {
+          creneau.debut = new Date(creneau.debut);
+          creneau.fin = new Date(creneau.fin);
+        }
+      }
     }, err => console.log(err));
 
   }
@@ -79,8 +85,14 @@ this.listRendezVous(7);
     }
   }
   compareDates(jour: Date) {
-    return this.heureDebut === jour;
 
+    if (jour == null){
+      return false;
+    }
+    else {
+      console.log(jour.getDay());
+      return this.heureDebut.getDay()== jour.getDay();
+    }
 
 
   }

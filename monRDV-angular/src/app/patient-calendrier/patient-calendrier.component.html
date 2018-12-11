@@ -48,7 +48,7 @@
             <div>{{plage(rdv)}}</div>
             <!--<div>{{rdv.patient.nom}}</div>-->
             <div *ngIf="compareDates(jour.dateComplete)">
-              <div>{{rdv.patient.prenom}}</div>
+              <button class="btn btn-success">{{heureDebut | date :'HH:mm'}}<br>{{rdv.patient.prenom}}</button>
             <!--</div>-->
           </div>
           </div>
