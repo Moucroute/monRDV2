@@ -1,5 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {RendezVous} from "../model/rendez-vous";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-patient-mes-rdv-a-avenir',
@@ -8,9 +7,7 @@ import {RendezVous} from "../model/rendez-vous";
 })
 export class PatientMesRdvAVenirComponent implements OnInit {
 
-  rdv: RendezVous;
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit() {
   }

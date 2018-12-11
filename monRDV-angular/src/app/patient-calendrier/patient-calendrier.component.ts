@@ -20,7 +20,9 @@ export class PatientCalendrierComponent implements OnInit {
   private heureFin: Date;
 
   @Output()
-  childEvent : EventEmitter<RendezVous> = new EventEmitter<RendezVous>();
+  childEvent = new EventEmitter();
+
+
 
 
   arthur: Utilisateur = new Utilisateur();
@@ -66,8 +68,8 @@ export class PatientCalendrierComponent implements OnInit {
   listRendezVous(id: number) {
     this.patientCalendrierservice.findRendezVousById(id).subscribe(resp => {
       this.rendezVouss = resp.json();
-      for (let rdv of this.rendezVouss) {
-        for (let creneau of rdv.creneaux) {
+      for(let rdv of this.rendezVouss) {
+        for(let creneau of rdv.creneaux) {
           creneau.debut = new Date(creneau.debut);
           creneau.fin = new Date(creneau.fin);
         }
@@ -89,9 +91,10 @@ export class PatientCalendrierComponent implements OnInit {
 
   compareDates(jour: Date) {
 
-    if (jour == null) {
+    if (jour == null){
       return false;
-    } else {
+    }
+    else {
       console.log(jour.getDay());
       return (this.heureDebut.getDate() == jour.getDate() && this.heureDebut.getMonth() == jour.getMonth());
     }
@@ -218,8 +221,7 @@ export class PatientCalendrierComponent implements OnInit {
     return nbreJour;
 
   }
-
-  rdvParJour() {
+  rdvParJour(){
 
   }
 }
