@@ -23,7 +23,7 @@ import {NgModule} from '@angular/core';
 const routes: Routes = [
 
   {path: 'patient/mesrdvavenir', component: PatientMesRdvAVenirComponent},
-  {path: 'patient/mesrdvpasses', component: PatientRdvInformationComponent},
+  {path: 'patient/mesrdvpasses', component: PatientMesRdvPassesComponent},
   {path: 'patient/mesinfos/:id', component: PatientMesInfosComponent},
   {path: '', redirectTo: 'patient/mesinfos/8', pathMatch: 'full'},
 
