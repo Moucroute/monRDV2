@@ -47,7 +47,7 @@ export class PatientCalendrierComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listRendezVous(145);
+    this.listRendezVous(7);
   }
 
   // rendezVouss = this.listRendezVous(7);

@@ -154,7 +154,7 @@ public class MonRdvBootRestApplicationTests {
 //		patient1.setListRendezVous(rendezVous); fait plus loin
 
 		Patient patient2 = new Patient();
-		patient2.setDefaut(true);
+		patient2.setDefaut(false);
 		patient2.setNom("Gonzales");
 		patient2.setPrenom("Arthur");
 		patient2.setDateNaissance(sdf.parse("30/12/1993"));
@@ -163,7 +163,7 @@ public class MonRdvBootRestApplicationTests {
 //		patient2.setListRendezVous(rendezVous); fait plus loin
 
 		Patient patient3 = new Patient();
-		patient3.setDefaut(true);
+		patient3.setDefaut(false);
 		patient3.setNom("Labat");
 		patient3.setPrenom("Jory");
 		patient3.setDateNaissance(sdf.parse("21/10/1992"));
@@ -189,10 +189,20 @@ public class MonRdvBootRestApplicationTests {
 		modalite1.setDepassementHonoraires(false);
 		modalite1.setMotif(motif1);
 //		modalite1.setPraticien(praticien1);
+		
+		Modalite modalite2 = new Modalite();
+		modalite2.setPrix(20f);
+		modalite2.setDuree(30L);
+		modalite2.setDelaiAnnulation(7L);
+		modalite2.setDepassementHonoraires(false);
+		modalite2.setMotif(motif1);
+//		modalite1.setPraticien(praticien1);
 
 		modalites1.add(modalite1);
+		modalites1.add(modalite2);
 
 		modalite1 = repoModalite.save(modalite1);
+		modalite2 = repoModalite.save(modalite2);
 
 //		RendezVous ---------------------------------------------------------------------------------------------
 		List<RendezVous> rendezvouss1 = new ArrayList<RendezVous>();
@@ -200,25 +210,46 @@ public class MonRdvBootRestApplicationTests {
 		RendezVous rendezvous1 = new RendezVous();
 		rendezvous1.setUtilisateur(utilisateur1);
 		rendezvous1.setPatient(patient1);
-		rendezvous1.setModalite(modalite1);
+		rendezvous1.setModalite(modalite2);
 //		rendezvous1.setRendezVous(null);
 		rendezvous1.setStatut(true);
 		RendezVous rendezvous2 = new RendezVous();
 		rendezvous2.setUtilisateur(utilisateur1);
 		rendezvous2.setPatient(patient2);
-		rendezvous2.setModalite(modalite1);
+		rendezvous2.setModalite(modalite2);
 		rendezvous2.setStatut(true);
 //		rendezvous2.setRendezVous(null);
 		RendezVous rendezvous3 = new RendezVous();
 		rendezvous3.setUtilisateur(utilisateur1);
 		rendezvous3.setPatient(patient3);
-		rendezvous3.setModalite(modalite1);
+		rendezvous3.setModalite(modalite2);
 //		rendezvous3.setRendezVous(null);
 		rendezvous3.setStatut(true);
-
+		RendezVous rendezvous4 = new RendezVous();
+		rendezvous4.setUtilisateur(utilisateur1);
+		rendezvous4.setPatient(patient1);
+		rendezvous4.setModalite(modalite2);
+//		rendezvous1.setRendezVous(null);
+		rendezvous4.setStatut(true);
+		RendezVous rendezvous5 = new RendezVous();
+		rendezvous5.setUtilisateur(utilisateur1);
+		rendezvous5.setPatient(patient2);
+		rendezvous5.setModalite(modalite2);
+//		rendezvous1.setRendezVous(null);
+		rendezvous5.setStatut(true);
+		RendezVous rendezvous6 = new RendezVous();
+		rendezvous6.setUtilisateur(utilisateur1);
+		rendezvous6.setPatient(patient3);
+		rendezvous6.setModalite(modalite2);
+//		rendezvous1.setRendezVous(null);
+		rendezvous6.setStatut(true);
+		
 		rendezvous1 = repoRendezVous.save(rendezvous1);
 		rendezvous2 = repoRendezVous.save(rendezvous2);
 		rendezvous3 = repoRendezVous.save(rendezvous3);
+		rendezvous4 = repoRendezVous.save(rendezvous4);
+		rendezvous5 = repoRendezVous.save(rendezvous5);
+		rendezvous6 = repoRendezVous.save(rendezvous6);
 
 //		 Creation objets adresse -------------------------------------------------------------------------------------
 
@@ -272,14 +303,14 @@ public class MonRdvBootRestApplicationTests {
 		creneaudisponible1.setFin(sdf2.parse("01/12/2018 8:15"));
 		creneaudisponible1.setLieu(lieu1);
 //		creneaudisponible1.setPraticien(praticien1); Fait plus loin
-		creneaudisponible1.setRendezVous(rendezvous1);
+		creneaudisponible1.setRendezVous(rendezvous6);
 
 		CreneauDisponible creneaudisponible2 = new CreneauDisponible();
 		creneaudisponible2.setDebut(sdf2.parse("01/12/2018 8:15"));
 		creneaudisponible2.setFin(sdf2.parse("01/12/2018 8:30"));
 		creneaudisponible2.setLieu(lieu1);
 //		creneaudisponible2.setPraticien(praticien1); Fait plus loin
-		creneaudisponible2.setRendezVous(rendezvous1);
+		creneaudisponible2.setRendezVous(rendezvous6);
 
 		CreneauDisponible creneaudisponible3 = new CreneauDisponible();
 
@@ -288,11 +319,60 @@ public class MonRdvBootRestApplicationTests {
 		creneaudisponible3.setLieu(lieu2);
 //		creneaudisponible2.setPraticien(praticien2); Fait plus loin
 		creneaudisponible3.setRendezVous(rendezvous2);
+		
+		CreneauDisponible creneaudisponible4 = new CreneauDisponible();
+		creneaudisponible4.setDebut(sdf2.parse("25/12/2018 10:00"));
+		creneaudisponible4.setFin(sdf2.parse("25/12/2018 10:15"));
+		creneaudisponible4.setLieu(lieu1);
+//		creneaudisponible4.setPraticien(praticien1); Fait plus loin
+		creneaudisponible4.setRendezVous(rendezvous3);
+		
+		CreneauDisponible creneaudisponible5 = new CreneauDisponible();
+		creneaudisponible5.setDebut(sdf2.parse("11/01/2019 11:00"));
+		creneaudisponible5.setFin(sdf2.parse("11/01/2019 11:15"));
+		creneaudisponible5.setLieu(lieu1);
+//		creneaudisponible5.setPraticien(praticien1); Fait plus loin
+		creneaudisponible5.setRendezVous(rendezvous4);
+		
+		CreneauDisponible creneaudisponible6 = new CreneauDisponible();
+		creneaudisponible6.setDebut(sdf2.parse("11/01/2019 11:15"));
+		creneaudisponible6.setFin(sdf2.parse("11/01/2019 11:30"));
+		creneaudisponible6.setLieu(lieu1);
+//		creneaudisponible6.setPraticien(praticien1); Fait plus loin
+		creneaudisponible6.setRendezVous(rendezvous4);
+		
+		CreneauDisponible creneaudisponible7 = new CreneauDisponible();
+		creneaudisponible7.setDebut(sdf2.parse("11/01/2019 11:30"));
+		creneaudisponible7.setFin(sdf2.parse("11/01/2019 11:45"));
+		creneaudisponible7.setLieu(lieu1);
+//		creneaudisponible7.setPraticien(praticien1); Fait plus loin
+		creneaudisponible7.setRendezVous(rendezvous4);
+		
+		CreneauDisponible creneaudisponible8 = new CreneauDisponible();
+		creneaudisponible8.setDebut(sdf2.parse("07/01/2019 16:30"));
+		creneaudisponible8.setFin(sdf2.parse("07/01/2019 16:45"));
+		creneaudisponible8.setLieu(lieu1);
+//		creneaudisponible8.setPraticien(praticien1); Fait plus loin
+		creneaudisponible8.setRendezVous(rendezvous5);
+		
+		CreneauDisponible creneaudisponible9 = new CreneauDisponible();
+		creneaudisponible8.setDebut(sdf2.parse("17/12/2018 18:30"));
+		creneaudisponible9.setFin(sdf2.parse("17/17/2018 18:45"));
+		creneaudisponible9.setLieu(lieu1);
+//		creneaudisponible9.setPraticien(praticien1); Fait plus loin
+		creneaudisponible9.setRendezVous(rendezvous1);
+
 
 		creneaudisponible1 = repoCreneauDisponible.save(creneaudisponible1);
 		creneaudisponible2 = repoCreneauDisponible.save(creneaudisponible2);
 		creneaudisponible3 = repoCreneauDisponible.save(creneaudisponible3);
-
+		creneaudisponible4 = repoCreneauDisponible.save(creneaudisponible4);
+		creneaudisponible5 = repoCreneauDisponible.save(creneaudisponible5);
+		creneaudisponible6 = repoCreneauDisponible.save(creneaudisponible6);
+		creneaudisponible7 = repoCreneauDisponible.save(creneaudisponible7);
+		creneaudisponible8 = repoCreneauDisponible.save(creneaudisponible8);
+		creneaudisponible9 = repoCreneauDisponible.save(creneaudisponible9);
+		
 //		Praticien -----------------------------------------------------------------------------------------------
 		List<Praticien> praticiens1 = new ArrayList<>();
 		List<Praticien> praticiens2 = new ArrayList<>();
@@ -353,7 +433,7 @@ public class MonRdvBootRestApplicationTests {
 		utilisateur2.setEmail("utilisateur2@gmail.com");
 		utilisateur2.setTelephone("0654879865");
 		utilisateur2.setDateCreation(new Date());
-		utilisateur2.setMotDePasse("ettasoeur");
+		utilisateur2.setMotDePasse("user2");
 		utilisateur2.setProfil(Profil.Praticien);
 		utilisateur2.setPraticien(praticien1);
 		utilisateur2 = repoUtilisateur.save(utilisateur2); // managed
@@ -362,12 +442,22 @@ public class MonRdvBootRestApplicationTests {
 
 		creneaudisponible1.setPraticien(praticien1);
 		creneaudisponible2.setPraticien(praticien1);
-		creneaudisponible2.setPraticien(praticien2);
-
+		
+		creneaudisponible3.setPraticien(praticien2);
+		creneaudisponible4.setPraticien(praticien2);
+		
+		creneaudisponible5.setPraticien(praticien3);
+		creneaudisponible6.setPraticien(praticien3);
+		creneaudisponible7.setPraticien(praticien3);
+		
+		creneaudisponible8.setPraticien(praticien2);
+		
+		creneaudisponible9.setPraticien(praticien1);
+		
 		lieu3.setPraticien(praticien1);
 
-		modalite1.setPraticien(praticien1);
-		modalite1.setRendezVous(rendezvouss1);
+		modalite2.setPraticien(praticien1);
+		modalite2.setRendezVous(rendezvouss1);
 
 		patient1.setUtilisateur(utilisateur1);
 //		patient1.setListRendezVous(rendezvouss1);
@@ -385,7 +475,7 @@ public class MonRdvBootRestApplicationTests {
 		lieu2 = repoLieu.save(lieu2);
 		lieu3 = repoLieu.save(lieu3);
 
-		rendezvous1 = repoRendezVous.save(rendezvous1);
+		rendezvous6 = repoRendezVous.save(rendezvous6);
 		rendezvous2 = repoRendezVous.save(rendezvous2);
 		rendezvous3 = repoRendezVous.save(rendezvous3);
 
@@ -393,7 +483,7 @@ public class MonRdvBootRestApplicationTests {
 		patient2 = repoPatient.save(patient2);
 		patient3 = repoPatient.save(patient3);
 
-		modalite1 = repoModalite.save(modalite1);
+		modalite2 = repoModalite.save(modalite2);
 //		specialite1.getPraticiens().add(praticien2);
 
 		praticien2 = repoPraticien.save(praticien2);
