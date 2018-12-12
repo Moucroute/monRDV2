@@ -25,7 +25,7 @@ const routes: Routes = [
 
   {path: 'patient/mesrdvavenir', component: PatientMesRdvAVenirComponent},
   {path: 'patient/mesrdvpasses', component: PatientMesRdvPassesComponent},
-  {path: 'patient/mesinfos/:id', component: PatientMesInfosComponent},
+  {path: 'patient/mesinfos', component: PatientMesInfosComponent},
   {path: 'patient/inscription', component: PatientInscriptionComponent},
   {path: 'patient/connexion', component: ConnexionComponent},
 

@@ -8,13 +8,13 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class PatientMesInfosComponent implements OnInit {
 
-  utilisateurId: number;
+  //utilisateurId: number;
 
   constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => this.utilisateurId = params['id']);
+    // .route.params.subscribe(params => this.utilisateurId = params['id']);
   }
 
 }

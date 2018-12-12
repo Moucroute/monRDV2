@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Utilisateur} from '../model/utilisateur';
 import {Patient} from '../model/patient';
 import {PatientDonneesUtilisateurHttpService} from './patient-donnees-utilisateur-http.service';
+import {ConnexionComponent} from '../connexion/connexion.component';
 import {RendezVous} from '../model/rendez-vous';
 
 @Component({
@@ -11,9 +12,7 @@ import {RendezVous} from '../model/rendez-vous';
 })
 export class PatientDonneesUtilisateurComponent implements OnInit {
 
-  @Input()
   utilisateurId: number;
-
   affiche: boolean = false;
   current: Patient = new Patient();
   patientForm: Patient = null;
@@ -22,6 +21,8 @@ export class PatientDonneesUtilisateurComponent implements OnInit {
   }
 
   ngOnInit() {
+    let util : Utilisateur = JSON.parse(sessionStorage.getItem('id'));
+    this.utilisateurId = util.id;
     this.patientDonneesUtilisateurService.findPatientDefaut(this.utilisateurId).subscribe(resp => {
       this.current = resp.json();
       console.log(this.current);

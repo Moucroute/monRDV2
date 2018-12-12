@@ -15,6 +15,8 @@ import {JourCalendrier} from './jourCalendrier';
   styleUrls: ['./patient-calendrier.component.css']
 })
 export class PatientCalendrierComponent implements OnInit {
+
+  private utilisateurId : number;
   private rendezVouss: Array<RendezVous> = new Array<RendezVous>();
   private heureDebut: Date;
   private heureFin: Date;
@@ -47,7 +49,9 @@ export class PatientCalendrierComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listRendezVous(7);
+    let util : Utilisateur = JSON.parse(sessionStorage.getItem('id'));
+    this.utilisateurId = util.id;
+    this.listRendezVous(this.utilisateurId);
   }
 
   // rendezVouss = this.listRendezVous(7);
