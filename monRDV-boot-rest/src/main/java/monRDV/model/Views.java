@@ -62,9 +62,7 @@ public class Views {
 
 	}
 	
-	
-	
-	
+
 	
 //	public static class ViewPraticienCreneau extends ViewCommon {
 //

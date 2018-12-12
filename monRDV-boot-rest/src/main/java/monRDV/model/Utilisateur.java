@@ -67,6 +67,7 @@ public class Utilisateur {
 	@JoinColumn(name = "praticien_id")
 	@JsonView(Views.ViewPraticien.class)
 	private Praticien praticien;
+	
 
 	public Utilisateur() {
 		super();
@@ -161,7 +162,7 @@ public class Utilisateur {
 	public void setRendezVous(List<RendezVous> rendezVous) {
 		this.rendezVous = rendezVous;
 	}
-	
+
 	
 
 }

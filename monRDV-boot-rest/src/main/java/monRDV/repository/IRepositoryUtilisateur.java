@@ -32,4 +32,7 @@ public interface IRepositoryUtilisateur extends JpaRepository<Utilisateur, Long>
 	
 	@Query("select u from Utilisateur u where u.email = :email and u.motDePasse = :motDePasse")
 	public Utilisateur findUtilisateurByEmailAndMotDePasse(@Param("email") String email, @Param("motDePasse") String motDePasse);
+
+	@Query("select u from Utilisateur u where u.email = :email")
+	Utilisateur findByLogin(@Param("email") String email);
 }
