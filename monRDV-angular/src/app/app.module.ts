@@ -15,10 +15,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {NgModule} from '@angular/core';
-import { PatientInscriptionComponent } from './patient-inscription/patient-inscription.component';
+import {PatientInscriptionComponent} from './patient-inscription/patient-inscription.component';
 import {PatientInscriptionHttpService} from "./patient-inscription/patient-inscription-http.service";
-import { ConnexionComponent } from './connexion/connexion.component';
+import {ConnexionComponent} from './connexion/connexion.component';
 import {ConnexionService} from "./connexion/connexion.service";
+import {BasicAuthInterceptor} from "./securite/basic-auth.interceptor";
 
 
 const routes: Routes = [
@@ -55,7 +56,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [PatientMesPatientsHttpService, PatientRdvInformationHttpService, PatientInscriptionHttpService,
-    PatientCalendrierHttpService, PatientDonneesUtilisateurHttpService, ConnexionService],
+    PatientCalendrierHttpService, PatientDonneesUtilisateurHttpService, ConnexionService, BasicAuthInterceptor],
 
   bootstrap: [AppComponent]
 })
