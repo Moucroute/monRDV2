@@ -35,9 +35,8 @@ public class Utilisateur {
 	@JsonView(Views.ViewCommon.class)
 	private int version;
 	
-	@Column(name = "email")
+	@Column(name = "email", unique=true)
 	@JsonView(Views.ViewCommon.class)
-	// @UniqueElements - TODO : faire valider l'annotation par Eric et Jérome
 	private String email;
 	
 	@Column(name = "telephone")
