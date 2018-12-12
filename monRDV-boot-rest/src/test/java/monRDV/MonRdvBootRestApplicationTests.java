@@ -470,14 +470,23 @@ public class MonRdvBootRestApplicationTests {
 		creneaudisponible1 = repoCreneauDisponible.save(creneaudisponible1);
 		creneaudisponible2 = repoCreneauDisponible.save(creneaudisponible2);
 		creneaudisponible3 = repoCreneauDisponible.save(creneaudisponible3);
-
+		creneaudisponible4 = repoCreneauDisponible.save(creneaudisponible4);
+		creneaudisponible5 = repoCreneauDisponible.save(creneaudisponible5);
+		creneaudisponible6 = repoCreneauDisponible.save(creneaudisponible6);
+		creneaudisponible7 = repoCreneauDisponible.save(creneaudisponible7);
+		creneaudisponible8 = repoCreneauDisponible.save(creneaudisponible8);
+		creneaudisponible9 = repoCreneauDisponible.save(creneaudisponible9);
+		
 		lieu1 = repoLieu.save(lieu1);
 		lieu2 = repoLieu.save(lieu2);
 		lieu3 = repoLieu.save(lieu3);
 
-		rendezvous6 = repoRendezVous.save(rendezvous6);
+		rendezvous1 = repoRendezVous.save(rendezvous1);
 		rendezvous2 = repoRendezVous.save(rendezvous2);
 		rendezvous3 = repoRendezVous.save(rendezvous3);
+		rendezvous4 = repoRendezVous.save(rendezvous4);
+		rendezvous5 = repoRendezVous.save(rendezvous5);
+		rendezvous6 = repoRendezVous.save(rendezvous6);
 
 		patient1 = repoPatient.save(patient1);
 		patient2 = repoPatient.save(patient2);
